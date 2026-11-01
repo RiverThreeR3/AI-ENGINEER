@@ -1,6 +1,6 @@
 # Track 01 — Python & APIs: AI Request Budget Guard
 
-**Status: In progress (local tests only).** This is a deterministic foundation project, not an AI model, provider price feed, or a production-ready spending control.
+**Status: In progress (local tests and GitHub Actions CI passed).** This is a deterministic foundation project, not an AI model, provider price feed, or a production-ready spending control.
 
 ## Problem and contract
 
@@ -48,7 +48,7 @@ Container runs as a non-root user. Docker build/run have **not** been independen
 
 - Deterministic arithmetic and HTTP contract tests: local pytest execution is recorded in `PROJECTS.md` once run.
 - No model evaluation, benchmark, real pricing validation, tokenization accuracy, latency or cost measurement is claimed.
-- CI checks run on PRs and pushes affecting this track; check the GitHub Actions run before claiming CI success.
+- [GitHub Actions run 41303422258](https://github.com/RiverThreeR3/AI-ENGINEER/actions/runs/41303422258) passed on 2026-11-01 (pytest and Ruff on Python 3.12).
 
 ## Security, privacy and limitations
 

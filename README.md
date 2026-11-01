@@ -4,7 +4,7 @@
 
 This is the applied AI Engineering portfolio of [@RiverThreeR3](https://github.com/RiverThreeR3). It is organized around hands-on projects, reproducible evaluations, software quality, security and deployment.
 
-**Current status:** one deterministic FastAPI foundation service has local passing tests; no verified CI or deployment yet. A folder does **not** mean its project is complete.
+**Current status:** one deterministic FastAPI foundation service has passing local tests and GitHub Actions CI; no verified deployment yet. A folder does **not** mean its project is complete.
 
 ## Navigate
 
@@ -18,7 +18,7 @@ This is the applied AI Engineering portfolio of [@RiverThreeR3](https://github.c
 
 | # | Track | Main deliverable | State |
 | --- | --- | --- | --- |
-| 01 | [Python & APIs](tracks/01-python-apis/README.md) | Tested FastAPI budget-estimation service | **In progress — local tests passed** |
+| 01 | [Python & APIs](tracks/01-python-apis/README.md) | Tested FastAPI budget-estimation service | **In progress — tests and CI passed** |
 | 02 | [Machine Learning](tracks/02-machine-learning/README.md) | Measured ML prediction API | Planned |
 | 03 | [Deep Learning](tracks/03-deep-learning/README.md) | Reproducible PyTorch training loop | Planned |
 | 04 | [LLM Engineering](tracks/04-llm-engineering/README.md) | Structured-output LLM gateway | Planned |

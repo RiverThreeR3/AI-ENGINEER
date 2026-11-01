@@ -1,10 +1,10 @@
 # AI Engineer Project Portfolio
 
-**Review date:** 2026-11-01. Statuses below describe *documented evidence*. The Python API test suite was executed locally with Python 3.13.5, FastAPI 0.128.2, Pydantic 2.13.5, pytest 9.0.2 and HTTPX 0.28.1. CI, Docker and deployment have not yet been independently verified.
+**Review date:** 2026-11-01. Statuses below describe *documented evidence*. The Python API test suite was executed locally with Python 3.13.5, FastAPI 0.128.2, Pydantic 2.13.5, pytest 9.0.2 and HTTPX 0.28.1. GitHub Actions CI passed on 2026-11-01; Docker and deployment have not been independently verified.
 
 | Project | Tracks | Status | Next acceptance gate |
 | --- | --- | --- | --- |
-| [AI Request Budget Guard](tracks/01-python-apis/README.md) | 01 | **In progress — 17/17 local tests passed** | Verify PR CI and Ruff; benchmark and add gateway controls before portfolio-ready |
+| [AI Request Budget Guard](tracks/01-python-apis/README.md) | 01 | **In progress — 17/17 local tests and CI passed** | Benchmark and add gateway controls before portfolio-ready |
 | [rag-production](https://github.com/raphaelribeirob/rag-production) | 05, 07, 09, 10 | In progress (external reference only) | Fix real-model groundedness gap; add prompt-injection defense, telemetry and tests |
 | [agent-benchmark](https://github.com/raphaelribeirob/agent-benchmark) | 06, 07 | Scaffold (external reference only) | Implement task suite and measured comparison with deterministic test runner |
 | Classical ML prediction service | 02 | Planned | Dataset baseline + holdout evaluation + reproducible API |
@@ -21,9 +21,10 @@
 - Command: `cd tracks/01-python-apis && python -m pytest -q`
 - Result: `17 passed in 0.28s` (Python 3.13.5; local environment only).
 - Syntax: `python -m compileall -q app tests` succeeded.
-- Ruff was **not** run locally: package unavailable in the offline environment. CI must independently verify it.
+- Ruff was **not** run locally: package unavailable in the offline environment.
+- GitHub Actions run [41303422258](https://github.com/RiverThreeR3/AI-ENGINEER/actions/runs/41303422258) on 2026-11-01 **passed** with Python 3.12, pytest and Ruff checks.
 - No model inference, provider calls, tokenization, latency/cost benchmarking or external service was exercised.
-- No verified CI status, Docker build or deployed endpoint is claimed.
+- Docker build and deployed endpoint remain unverified.
 
 ## Evidence checklist per project
 
