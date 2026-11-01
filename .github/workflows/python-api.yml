@@ -1,0 +1,30 @@
+name: Python API foundation
+on:
+  pull_request:
+    paths:
+      - 'tracks/01-python-apis/**'
+      - '.github/workflows/python-api.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'tracks/01-python-apis/**'
+      - '.github/workflows/python-api.yml'
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned dependencies
+        working-directory: tracks/01-python-apis
+        run: python -m pip install -r requirements-dev.txt
+      - name: Unit and API contract tests
+        working-directory: tracks/01-python-apis
+        run: python -m pytest -q
+      - name: Ruff lint
+        working-directory: tracks/01-python-apis
+        run: ruff check .
