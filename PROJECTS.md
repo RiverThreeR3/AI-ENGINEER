@@ -1,11 +1,12 @@
 # AI Engineer Project Portfolio
 
-**Review date:** 2026-10-31. Statuses below describe *documented evidence*; no CI run or deployment was performed as part of organizing this hub.
+**Review date:** 2026-11-01. Statuses below describe *documented evidence*; no CI run or deployment was performed as part of organizing this hub.
 
 | Project | Tracks | Status | Next acceptance gate |
 | --- | --- | --- | --- |
 | [rag-production](https://github.com/raphaelribeirob/rag-production) | 05, 07, 09, 10 | In progress | Fix real-model groundedness gap; add prompt-injection defense, telemetry and tests |
 | [agent-benchmark](https://github.com/raphaelribeirob/agent-benchmark) | 06, 07 | Scaffold | Implement task suite and measured comparison with deterministic test runner |
+| [InstantCloser public policy lab](projects/instantcloser/README.md) | 01, 06, 07, 10, 11 | Demo implementation; no real-model/production validation | Run CI; add independent held-out evals, authorized tool simulation, cost and latency measurements |
 | Python API foundations | 01 | Planned | Typed endpoints + pytest + lint + CI |
 | Classical ML prediction service | 02 | Planned | Dataset baseline + holdout evaluation + reproducible API |
 | Deep learning training pipeline | 03 | Planned | Train/evaluate/save/reload a PyTorch model |

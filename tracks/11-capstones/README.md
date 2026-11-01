@@ -1,6 +1,10 @@
 # End-to-end AI Products
 
-**Status:** Planned
+**Status:** Planned for full end-to-end capstone; [InstantCloser public policy lab](../../projects/instantcloser/README.md) is a partial runnable demonstration, not a finished product
+
+## Related applied project
+
+- [InstantCloser — deterministic-first sales agent lab](../../projects/instantcloser/README.md): synthetic scenarios, reproducible decision-policy checks and safety guardrails; private commercial source excluded.
 
 ## Hands-on project
 Ship a practical AI application combining retrieval or agents, user interface, API, persistent data, evaluation, deployment and security.
