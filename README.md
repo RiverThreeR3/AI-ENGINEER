@@ -32,6 +32,9 @@ This is the applied AI Engineering portfolio of [@raphaelribeirob](https://githu
 
 ## Existing public code
 
+The [InstantCloser AI Engineering case](projects/instantcloser/README.md) includes a safe public decision-policy lab, regression tests and a synthetic evaluation benchmark. The complete commercial InstantCloser source remains in its separate private repository and is **not** published here.
+
+
 | Repository | What it demonstrates | Honest status |
 | --- | --- | --- |
 | [rag-production](https://github.com/raphaelribeirob/rag-production) | FastAPI, pgvector, grounded Q&A and retrieval evaluation | **Work in progress.** The repository documents a real-model faithfulness score below its target. |
