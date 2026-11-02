@@ -1,6 +1,6 @@
 # Track 01 — Python & APIs: AI Request Budget Guard
 
-**Status: In progress.** The 2026-11-02 local tests passed; new CI and Docker smoke checks must be independently verified. This is a deterministic foundation project, not a production spending control.
+**Status: In progress.** Local tests and 2026-11-02 GitHub Actions pytest, Ruff and Docker smoke checks passed; no external deployment is verified. This is a deterministic foundation project, not a production spending control.
 
 ## Problem and contract
 
@@ -47,13 +47,14 @@ docker run --rm -p 127.0.0.1:8000:8000 \
   -e BUDGET_GUARD_API_KEY="$BUDGET_GUARD_API_KEY" ai-budget-guard
 ```
 
-Container runs as a non-root user. Docker was unavailable locally on 2026-11-02; the new CI workflow attempts a Docker build and real HTTP smoke check. Do not claim Docker passed until the CI result is verified.
+Container runs as a non-root user. Docker was unavailable locally on 2026-11-02; the GitHub Actions Docker build and live-container HTTP smoke check **passed** in [run 41440612150](https://github.com/RiverThreeR3/AIEngineer/actions/runs/41440612150). This is a CI container check, not a deployed production endpoint.
 
 ## Test and evaluation evidence
 
 - Local 2026-11-02: `python -m pytest -q` — **27 passed in 0.35s** (Python 3.13.5). `python -m compileall -q app tests scripts` — passed. Ruff unavailable locally; CI must verify lint.
 - Local 2026-11-02: `python -m scripts.benchmark_local --iterations 200 --warmup 20` — in-process TestClient p50 **1.035 ms**, p95 **1.682 ms**, p99 **2.399 ms** (one environment/run; **not network or production latency**). The benchmark raises the local rate cap to isolate processing.
-- [Previous CI run](https://github.com/RiverThreeR3/AIEngineer/actions/runs/41303475616) passed on 2026-11-01, **before** these changes. New CI and Docker results are pending verification.
+- [GitHub Actions run 41440612150](https://github.com/RiverThreeR3/AIEngineer/actions/runs/41440612150) passed on 2026-11-02 (Python 3.12.15: **27 passed, 1 dependency deprecation warning in 0.57s**; Ruff passed; Docker build and live-container HTTP smoke passed).
+- CI in-process TestClient benchmark (100 iterations, 10 warmup): p50 **1.120 ms**, p95 **1.634 ms**, p99 **2.094 ms**. This is not a network or production benchmark.
 - No model evaluation, provider calls, tokenizer accuracy, real pricing, deployment or production cost measurement is claimed.
 
 ## Security, privacy and limitations
@@ -70,4 +71,4 @@ Original example implementation. Uses FastAPI (MIT), Pydantic (MIT), Starlette (
 
 ## Next acceptance gate
 
-Confirm the updated CI and Docker smoke checks pass. Then measure real HTTP latency/throughput and implement distributed rate limits, production authentication, deployment and rollback. Keep Track 01 active until the acceptance gates pass.
+CI and Docker smoke checks passed. Next measure real HTTP latency/throughput and implement distributed rate limits, production authentication, deployment and rollback. Keep Track 01 active until the acceptance gates pass.
