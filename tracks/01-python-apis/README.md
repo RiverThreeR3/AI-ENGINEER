@@ -1,15 +1,17 @@
 # Track 01 — Python & APIs: AI Request Budget Guard
 
-**Status: In progress (local tests and GitHub Actions CI passed).** This is a deterministic foundation project, not an AI model, provider price feed, or a production-ready spending control.
+**Status: In progress.** The 2026-11-02 local tests passed; new CI and Docker smoke checks must be independently verified. This is a deterministic foundation project, not a production spending control.
 
 ## Problem and contract
 
 Estimate the maximum **per-request** USD cost of a hypothetical model call using caller-supplied token counts and per-million-token prices. The API returns an exact Decimal calculation and whether the estimate is within a caller-supplied budget. This is useful as a preflight component, but **not** a billing system: actual usage may differ, and the caller controls all values.
 
 - `GET /healthz` returns `{"status":"ok"}`.
-- `POST /v1/budget/check` accepts JSON: `input_tokens` and `output_tokens` as strict integers from 0 to 10,000,000; `input_price_usd_per_million` and `output_price_usd_per_million` as decimal **strings** from 0 to 1,000 with at most six fractional digits; `max_cost_usd` as a decimal **string** from 0 to 10,000 with at most six fractional digits.
+- `POST /v1/budget/check` requires the `X-API-Key` header, configured using `BUDGET_GUARD_API_KEY` (at least 16 characters). It accepts JSON: `input_tokens` and `output_tokens` as strict integers from 0 to 10,000,000; `input_price_usd_per_million` and `output_price_usd_per_million` as decimal **strings** from 0 to 1,000 with at most six fractional digits; `max_cost_usd` as a decimal **string** from 0 to 10,000 with at most six fractional digits.
 - Returns `estimated_cost_usd` and `remaining_usd` as exact decimal strings, `within_budget` as boolean, and `pricing_source: caller_supplied`.
-- Unknown fields and invalid input return FastAPI/Pydantic HTTP 422; no model calls, external APIs, databases or request-body logging.
+- Unknown fields and invalid input return 422. Missing/wrong API keys return 401/403; missing server key returns 503 (fail closed).
+- The budget endpoint rejects bodies over 2,048 bytes (413), including chunked bodies, before JSON parsing.
+- A thread-safe, process-local fixed-window limiter allows 60 authenticated requests per 60 seconds. Excess requests return 429 with `Retry-After`. No model calls, external APIs, databases or request-body logging.
 
 ## Quickstart
 
@@ -20,15 +22,17 @@ cd tracks/01-python-apis
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements-dev.txt
+export BUDGET_GUARD_API_KEY="$(python -c 'import secrets; print(secrets.token_urlsafe(32))')"
 python -m pytest -q
 ruff check .
 uvicorn app.main:app --host 127.0.0.1 --port 8000
 ```
 
-Windows PowerShell activation: `.venv\Scripts\Activate.ps1`. Open `http://127.0.0.1:8000/docs` for the generated OpenAPI UI.
+Windows PowerShell activation: `.venv\Scripts\Activate.ps1`. Set `$env:BUDGET_GUARD_API_KEY` to a random secret. `.env.example` shows the variable name, not a safe real key. Open `http://127.0.0.1:8000/docs` for the generated OpenAPI UI.
 
 ```bash
 curl -s http://127.0.0.1:8000/v1/budget/check \
+  -H "X-API-Key: $BUDGET_GUARD_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{"input_tokens":1000,"output_tokens":500,"input_price_usd_per_million":"2","output_price_usd_per_million":"8","max_cost_usd":"0.01"}'
 ```
@@ -39,29 +43,31 @@ Expected: `{"estimated_cost_usd":"0.006","remaining_usd":"0.004","within_budget"
 
 ```bash
 docker build -t ai-budget-guard tracks/01-python-apis
-docker run --rm -p 127.0.0.1:8000:8000 ai-budget-guard
+docker run --rm -p 127.0.0.1:8000:8000 \
+  -e BUDGET_GUARD_API_KEY="$BUDGET_GUARD_API_KEY" ai-budget-guard
 ```
 
-Container runs as a non-root user. Docker build/run have **not** been independently verified in this delivery.
+Container runs as a non-root user. Docker was unavailable locally on 2026-11-02; the new CI workflow attempts a Docker build and real HTTP smoke check. Do not claim Docker passed until the CI result is verified.
 
 ## Test and evaluation evidence
 
-- Deterministic arithmetic and HTTP contract tests: local pytest execution is recorded in `PROJECTS.md` once run.
-- No model evaluation, benchmark, real pricing validation, tokenization accuracy, latency or cost measurement is claimed.
-- [GitHub Actions run 41303422258](https://github.com/RiverThreeR3/AI-ENGINEER/actions/runs/41303422258) passed on 2026-11-01 (pytest and Ruff on Python 3.12).
+- Local 2026-11-02: `python -m pytest -q` — **27 passed in 0.35s** (Python 3.13.5). `python -m compileall -q app tests scripts` — passed. Ruff unavailable locally; CI must verify lint.
+- Local 2026-11-02: `python -m scripts.benchmark_local --iterations 200 --warmup 20` — in-process TestClient p50 **1.035 ms**, p95 **1.682 ms**, p99 **2.399 ms** (one environment/run; **not network or production latency**). The benchmark raises the local rate cap to isolate processing.
+- [Previous CI run](https://github.com/RiverThreeR3/AIEngineer/actions/runs/41303475616) passed on 2026-11-01, **before** these changes. New CI and Docker results are pending verification.
+- No model evaluation, provider calls, tokenizer accuracy, real pricing, deployment or production cost measurement is claimed.
 
 ## Security, privacy and limitations
 
-- Do not expose this API publicly without authentication, request-size limits, rate limiting and monitoring at the gateway.
-- Caller-supplied prices are **not** authoritative. Token counts must come from a trusted tokenizer or provider; estimates are not spending enforcement.
-- No persistence, outbound requests, secrets or PII are required. Avoid submitting sensitive content anyway.
-- The base Docker image and GitHub Actions are pinned to version tags, **not immutable digests/SHAs**; pin them before higher-trust deployment.
-- There is no live deployment or verified rollback. This project is intentionally a learning foundation.
+- Single-key demonstration only. The fixed-window limiter is **per process** and resets on restart; replicas do not share a quota. For production, use HTTPS, per-tenant authentication, a distributed gateway limiter, monitoring, centralized secrets and ingress controls.
+- Invalid API keys are not rate-limited in-process; network-layer abuse protection is required. The 2,048-byte middleware applies only to the budget route; other paths need ingress limits.
+- Caller-supplied prices and token counts are **not authoritative**. Actual token usage and provider charges are not controlled by this estimator.
+- No persistence, outbound requests, PII or secret/body logging is required. Never commit a real key or log the header at a proxy.
+- The Docker base image and Actions are pinned to tags, not immutable digests/SHAs. No verified deployment or rollback exists.
 
 ## Attribution and license
 
-Original example implementation. Uses FastAPI (MIT), Pydantic (MIT), pytest (MIT), HTTPX (BSD-3-Clause), Uvicorn (BSD-3-Clause), and Ruff (MIT). No external code copied. A repository-level license must be selected before redistributing the project under a declared license.
+Original example implementation. Uses FastAPI (MIT), Pydantic (MIT), Starlette (BSD-3-Clause), pytest (MIT), HTTPX (BSD-3-Clause), Uvicorn (BSD-3-Clause), and Ruff (MIT). No external code copied. A repository-level license must be selected before redistributing the project under a declared license.
 
 ## Next acceptance gate
 
-Confirm CI passes on the PR; add a reproducible latency benchmark and measured gateway protections before claiming portfolio-ready status. Keep this project active until its acceptance criteria pass.
+Confirm the updated CI and Docker smoke checks pass. Then measure real HTTP latency/throughput and implement distributed rate limits, production authentication, deployment and rollback. Keep Track 01 active until the acceptance gates pass.

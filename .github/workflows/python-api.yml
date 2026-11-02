@@ -28,3 +28,39 @@ jobs:
       - name: Ruff lint
         working-directory: tracks/01-python-apis
         run: ruff check .
+      - name: In-process latency smoke benchmark (not network performance)
+        working-directory: tracks/01-python-apis
+        run: python -m scripts.benchmark_local --iterations 100 --warmup 10
+  docker-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Docker image
+        run: docker build -t ai-budget-guard:ci tracks/01-python-apis
+      - name: Run container and verify HTTP contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker run -d --rm --name ai-budget-guard-ci \
+            -e BUDGET_GUARD_API_KEY='ci-only-example-key-123456789' \
+            -p 127.0.0.1:18000:8000 ai-budget-guard:ci
+          trap 'docker logs ai-budget-guard-ci || true; docker rm -f ai-budget-guard-ci || true' EXIT
+          ready=0
+          for attempt in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:18000/healthz > /dev/null; then
+              ready=1
+              break
+            fi
+            sleep 1
+          done
+          test "$ready" -eq 1
+          status=$(curl -sS -o /dev/null -w '%{http_code}' \
+            -H 'Content-Type: application/json' \
+            -d '{"input_tokens":1,"output_tokens":1,"input_price_usd_per_million":"1","output_price_usd_per_million":"1","max_cost_usd":"1"}' \
+            http://127.0.0.1:18000/v1/budget/check)
+          test "$status" = 401
+          curl -fsS http://127.0.0.1:18000/v1/budget/check \
+            -H 'X-API-Key: ci-only-example-key-123456789' \
+            -H 'Content-Type: application/json' \
+            -d '{"input_tokens":1000,"output_tokens":500,"input_price_usd_per_million":"2","output_price_usd_per_million":"8","max_cost_usd":"0.01"}' \
+            | python -c 'import json,sys; r=json.load(sys.stdin); assert r["estimated_cost_usd"] == "0.006" and r["within_budget"]'

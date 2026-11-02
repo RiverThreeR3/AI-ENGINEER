@@ -1,9 +1,13 @@
 """A small, typed FastAPI service with no provider calls or persistence."""
 
 from decimal import Decimal
+from typing import Annotated
 
-from fastapi import FastAPI
+from fastapi import Depends, FastAPI
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, field_validator
+
+from app.body_limit import BodyLimitMiddleware
+from app.security import require_access
 
 MILLION = Decimal("1000000")
 MAX_TOKENS = 10_000_000
@@ -11,8 +15,9 @@ MAX_TOKENS = 10_000_000
 app = FastAPI(
     title="AI Request Budget Guard",
     description="Deterministic, caller-priced cost estimates. No model inference.",
-    version="0.1.0",
+    version="0.2.0",
 )
+app.add_middleware(BodyLimitMiddleware, max_bytes=2048)
 
 
 class BudgetRequest(BaseModel):
@@ -63,7 +68,10 @@ def healthz() -> dict[str, str]:
 
 
 @app.post("/v1/budget/check", response_model=BudgetResponse)
-def check_budget(request: BudgetRequest) -> BudgetResponse:
+def check_budget(
+    request: BudgetRequest,
+    _authorized: Annotated[None, Depends(require_access)],
+) -> BudgetResponse:
     estimated = (
         request.input_tokens * request.input_price_usd_per_million
         + request.output_tokens * request.output_price_usd_per_million

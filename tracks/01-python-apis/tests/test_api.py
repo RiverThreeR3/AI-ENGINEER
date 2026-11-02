@@ -1,11 +1,22 @@
 """Contract and boundary tests; no mock model metrics are implied."""
 
+from concurrent.futures import ThreadPoolExecutor
+
 import pytest
 from fastapi.testclient import TestClient
+from httpx import Response
 
+from app import security
 from app.main import app
 
 client = TestClient(app)
+TEST_KEY = "test-key-do-not-use-in-production-12345"
+
+
+@pytest.fixture(autouse=True)
+def configured_access(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setenv("BUDGET_GUARD_API_KEY", TEST_KEY)
+    monkeypatch.setattr(security, "limiter", security.FixedWindowLimiter())
 
 
 def payload() -> dict[str, object]:
@@ -18,6 +29,10 @@ def payload() -> dict[str, object]:
     }
 
 
+def post(data: dict[str, object]) -> Response:
+    return client.post("/v1/budget/check", json=data, headers={"X-API-Key": TEST_KEY})
+
+
 def test_healthz() -> None:
     response = client.get("/healthz")
     assert response.status_code == 200
@@ -25,7 +40,7 @@ def test_healthz() -> None:
 
 
 def test_estimate_and_budget_remaining() -> None:
-    response = client.post("/v1/budget/check", json=payload())
+    response = post(payload())
     assert response.status_code == 200
     assert response.json() == {
         "estimated_cost_usd": "0.006",
@@ -38,7 +53,7 @@ def test_estimate_and_budget_remaining() -> None:
 def test_over_budget_and_no_negative_remaining() -> None:
     data = payload()
     data["max_cost_usd"] = "0.005"
-    response = client.post("/v1/budget/check", json=data)
+    response = post(data)
     assert response.status_code == 200
     assert response.json()["within_budget"] is False
     assert response.json()["remaining_usd"] == "0"
@@ -47,7 +62,7 @@ def test_over_budget_and_no_negative_remaining() -> None:
 def test_exact_boundary_is_allowed() -> None:
     data = payload()
     data["max_cost_usd"] = "0.006"
-    response = client.post("/v1/budget/check", json=data)
+    response = post(data)
     assert response.json()["within_budget"] is True
     assert response.json()["remaining_usd"] == "0"
 
@@ -55,7 +70,7 @@ def test_exact_boundary_is_allowed() -> None:
 def test_zero_cost_and_zero_budget() -> None:
     data = payload()
     data.update(input_tokens=0, output_tokens=0, max_cost_usd="0")
-    response = client.post("/v1/budget/check", json=data)
+    response = post(data)
     assert response.status_code == 200
     assert response.json()["within_budget"] is True
     assert response.json()["estimated_cost_usd"] == "0"
@@ -79,16 +94,95 @@ def test_zero_cost_and_zero_budget() -> None:
 def test_invalid_payloads_return_422(field: str, value: object) -> None:
     data = payload()
     data[field] = value
-    assert client.post("/v1/budget/check", json=data).status_code == 422
+    assert post(data).status_code == 422
 
 
 def test_unknown_fields_rejected() -> None:
     data = payload()
     data["api_key"] = "do-not-accept-extra-fields"
-    assert client.post("/v1/budget/check", json=data).status_code == 422
+    assert post(data).status_code == 422
 
 
 def test_openapi_documents_contract() -> None:
     response = client.get("/openapi.json")
     assert response.status_code == 200
     assert "/v1/budget/check" in response.json()["paths"]
+    assert response.json()["components"]["securitySchemes"]["APIKeyHeader"]["in"] == "header"
+
+
+def test_missing_api_key_is_401() -> None:
+    response = client.post("/v1/budget/check", json=payload())
+    assert response.status_code == 401
+    assert response.headers["www-authenticate"] == "ApiKey"
+
+
+def test_invalid_api_key_is_403() -> None:
+    response = client.post("/v1/budget/check", json=payload(), headers={"X-API-Key": "bad"})
+    assert response.status_code == 403
+    assert TEST_KEY not in response.text
+
+
+def test_missing_server_key_fails_closed(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.delenv("BUDGET_GUARD_API_KEY")
+    assert post(payload()).status_code == 503
+
+
+def test_short_server_key_fails_closed(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setenv("BUDGET_GUARD_API_KEY", "short")
+    assert post(payload()).status_code == 503
+
+
+def test_fixed_window_limits_authenticated_requests(monkeypatch: pytest.MonkeyPatch) -> None:
+    now = [100.0]
+    monkeypatch.setattr(
+        security,
+        "limiter",
+        security.FixedWindowLimiter(limit=2, window_seconds=10.0, clock=lambda: now[0]),
+    )
+    assert post(payload()).status_code == 200
+    assert post(payload()).status_code == 200
+    blocked = post(payload())
+    assert blocked.status_code == 429
+    assert blocked.headers["retry-after"] == "10"
+    now[0] += 10.0
+    assert post(payload()).status_code == 200
+
+
+def test_wrong_key_does_not_consume_rate_limit(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setattr(security, "limiter", security.FixedWindowLimiter(limit=1))
+    assert client.post(
+        "/v1/budget/check", json=payload(), headers={"X-API-Key": "invalid"}
+    ).status_code == 403
+    assert post(payload()).status_code == 200
+    assert post(payload()).status_code == 429
+
+
+def test_content_length_limit() -> None:
+    response = client.post(
+        "/v1/budget/check", content=b"x" * 2049, headers={"X-API-Key": TEST_KEY}
+    )
+    assert response.status_code == 413
+
+
+def test_chunked_body_limit() -> None:
+    response = client.post(
+        "/v1/budget/check",
+        content=iter([b"x" * 1200, b"y" * 1200]),
+        headers={"X-API-Key": TEST_KEY, "Transfer-Encoding": "chunked"},
+    )
+    assert response.status_code == 413
+
+
+def test_maximum_body_size_is_parsed_not_rejected() -> None:
+    response = client.post(
+        "/v1/budget/check", content=b" " * 2048, headers={"X-API-Key": TEST_KEY}
+    )
+    assert response.status_code == 422
+
+
+def test_rate_limiter_thread_safe() -> None:
+    limiter = security.FixedWindowLimiter(limit=25, window_seconds=60)
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        results = list(pool.map(lambda _: limiter.retry_after(), range(100)))
+    assert results.count(None) == 25
+    assert results.count(60) == 75
