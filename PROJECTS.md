@@ -31,7 +31,7 @@
 ## Track 01 incremental evidence — 2026-11-03
 
 - Added a reproducible loopback TCP HTTP benchmark that launches a temporary Uvicorn process, validates 40 real HTTP responses and measures p50/p95/p99 over fresh TCP connections (not TestClient or external deployment).
-- Local Python 3.13.5 benchmark: **p50 2.252 ms, p95 3.783 ms, p99 4.813 ms**, 40 sequential measured requests + 5 warmup; no concurrency, provider or real cost measurement. Local validation tests: **10 passed**; compileall passed. CI must independently validate the new changes.
+- Local Python 3.13.5 benchmark: **p50 2.252 ms, p95 3.783 ms, p99 4.813 ms**, 40 sequential measured requests + 5 warmup; no concurrency, provider or real cost measurement. Local validation tests: **10 passed**; compileall passed. [GitHub Actions run 41625097153](https://github.com/RiverThreeR3/AIEngineer/actions/runs/41625097153) independently passed pytest, Ruff, in-process benchmark, **new loopback HTTP benchmark**, Docker build and live-container HTTP smoke on 2026-11-03.
 - The benchmark uses an ephemeral key, binds to loopback, limits total requests to 60 and terminates its subprocess. These are demonstration controls, not distributed authentication or ingress protection.
 - Remaining: production authentication, shared quotas, deployment/rollback, deployed network metrics, dependency digest pinning and license decision. Track 01 remains **in progress**.
 

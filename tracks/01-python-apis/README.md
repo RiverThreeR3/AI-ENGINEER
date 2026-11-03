@@ -1,6 +1,6 @@
 # Track 01 — Python & APIs: AI Request Budget Guard
 
-**Status: In progress.** Local tests and 2026-11-02 GitHub Actions pytest, Ruff and Docker smoke checks passed. A 2026-11-03 loopback TCP HTTP benchmark was measured locally; no external deployment is verified. This is a deterministic foundation project, not a production spending control.
+**Status: In progress.** Local tests and 2026-11-02 GitHub Actions pytest, Ruff and Docker smoke checks passed. A 2026-11-03 loopback TCP HTTP benchmark was measured locally and passed in [GitHub Actions run 41625097153](https://github.com/RiverThreeR3/AIEngineer/actions/runs/41625097153); no external deployment is verified. This is a deterministic foundation project, not a production spending control.
 
 ## Problem and contract
 
@@ -56,6 +56,7 @@ Container runs as a non-root user. Docker was unavailable locally on 2026-11-02;
 - [GitHub Actions run 41440781850](https://github.com/RiverThreeR3/AIEngineer/actions/runs/41440781850) passed on 2026-11-02 (Python 3.12.15: **27 passed, 1 dependency deprecation warning in 0.57s**; Ruff passed; Docker build and live-container HTTP smoke passed).
 - CI in-process TestClient benchmark (100 iterations, 10 warmup): p50 **1.120 ms**, p95 **1.634 ms**, p99 **2.094 ms**. This is not a network or production benchmark.
 - Local 2026-11-03: `python -m scripts.benchmark_http --iterations 40 --warmup 5` — **40 measured sequential HTTP requests over loopback TCP** to a temporary Uvicorn process, Python 3.13.5; p50 **2.252 ms**, p95 **3.783 ms**, p99 **4.813 ms**. Fresh TCP connection per request; no concurrency, remote deployment or real provider. Timing varies by host; this is not production latency or throughput. The script generates an ephemeral key, binds only to 127.0.0.1, respects the default 60-request rate cap and cleans up its child process. Ten additional pure validation tests passed locally.
+- [GitHub Actions run 41625097153](https://github.com/RiverThreeR3/AIEngineer/actions/runs/41625097153) passed on 2026-11-03: pytest (including 10 new validation tests), Ruff, in-process benchmark, loopback TCP HTTP benchmark, Docker build and live-container HTTP smoke. CI job success does not validate production latency.
 - No model evaluation, provider calls, tokenizer accuracy, real pricing, deployment or production cost measurement is claimed.
 
 ## Security, privacy and limitations
@@ -72,4 +73,4 @@ Original example implementation. Uses FastAPI (MIT), Pydantic (MIT), Starlette (
 
 ## Next acceptance gate
 
-CI and Docker smoke checks passed on 2026-11-02; a local loopback TCP HTTP benchmark now exists. Next verify the new benchmark in CI, then measure deployed network latency/throughput and implement distributed rate limits, production authentication, deployment and rollback. Keep Track 01 active until the acceptance gates pass.
+CI and Docker smoke checks passed on 2026-11-02 and 2026-11-03. The new loopback TCP HTTP benchmark passed in CI on 2026-11-03. Next measure deployed network latency/throughput and implement distributed rate limits, production authentication, deployment and rollback. Keep Track 01 active until the acceptance gates pass.
