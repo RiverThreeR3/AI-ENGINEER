@@ -1,6 +1,6 @@
 # AI Engineer Project Portfolio
 
-**Review date:** 2026-11-02. Local Track 01 tests and GitHub Actions pytest/Ruff/Docker smoke checks passed on 2026-11-02. No production deployment has been verified.
+**Review date:** 2026-11-03. Local Track 01 tests and GitHub Actions pytest/Ruff/Docker smoke checks passed on 2026-11-02; an additional loopback TCP HTTP benchmark and validation tests ran locally on 2026-11-03. No production deployment has been verified.
 
 | Project | Tracks | Status | Next acceptance gate |
 | --- | --- | --- | --- |
@@ -27,6 +27,13 @@
 - [GitHub Actions run 41440612150](https://github.com/RiverThreeR3/AIEngineer/actions/runs/41440612150) passed on 2026-11-02: Python 3.12.15, **27 passed, 1 dependency deprecation warning in 0.57s**, Ruff passed, Docker build and live-container HTTP smoke passed.
 - CI TestClient benchmark (100 iterations, 10 warmup): p50 **1.120 ms**, p95 **1.634 ms**, p99 **2.094 ms**. Not network or production performance. Local Docker unavailable; no external deployment/rollback verification.
 - No real model, provider, tokenizer, billing, external service or production cost measurement.
+
+## Track 01 incremental evidence — 2026-11-03
+
+- Added a reproducible loopback TCP HTTP benchmark that launches a temporary Uvicorn process, validates 40 real HTTP responses and measures p50/p95/p99 over fresh TCP connections (not TestClient or external deployment).
+- Local Python 3.13.5 benchmark: **p50 2.252 ms, p95 3.783 ms, p99 4.813 ms**, 40 sequential measured requests + 5 warmup; no concurrency, provider or real cost measurement. Local validation tests: **10 passed**; compileall passed. CI must independently validate the new changes.
+- The benchmark uses an ephemeral key, binds to loopback, limits total requests to 60 and terminates its subprocess. These are demonstration controls, not distributed authentication or ingress protection.
+- Remaining: production authentication, shared quotas, deployment/rollback, deployed network metrics, dependency digest pinning and license decision. Track 01 remains **in progress**.
 
 ## Evidence checklist per project
 

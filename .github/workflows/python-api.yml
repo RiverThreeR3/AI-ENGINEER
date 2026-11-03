@@ -31,6 +31,9 @@ jobs:
       - name: In-process latency smoke benchmark (not network performance)
         working-directory: tracks/01-python-apis
         run: python -m scripts.benchmark_local --iterations 100 --warmup 10
+      - name: Loopback TCP HTTP latency smoke (not deployed performance)
+        working-directory: tracks/01-python-apis
+        run: python -m scripts.benchmark_http --iterations 40 --warmup 5
   docker-smoke:
     runs-on: ubuntu-latest
     steps:
