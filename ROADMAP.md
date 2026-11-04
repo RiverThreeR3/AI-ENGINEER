@@ -11,6 +11,18 @@ This is a **project-first** path for applied AI engineering; phases represent sk
 | Production engineering | 09–10 | Deploy, observe, secure and cost-control an AI system |
 | Capstone | 11 | Deliver a full customer-oriented application |
 
+## Five pillars from theory to evidence
+
+The [five-pillar evidence map](PILLARS.md) groups the 11 tracks without replacing them:
+
+1. **Software Engineering** — tracks 01–03: Python, APIs, software quality, ML/DL foundations.
+2. **LLMs & RAG** — tracks 04–05 and 08: model interfaces, retrieval, adaptation.
+3. **Agents & Orchestration** — tracks 06–07: permissioned tool use, orchestration, agent evaluation.
+4. **Ops & Evaluation** — tracks 07, 09–10: regression evaluation, deployment, observability, safety and costs.
+5. **Signal Projects** — track 11 and finished hands-on cases from other tracks: reproducible portfolio proof.
+
+**Current milestone:** Module 01 has a deterministic FastAPI implementation with 16 passing tests observed locally. CI and Docker verification are pending, so this is not a completed production milestone.
+
 ## Learning loop
 
 1. Define user problem, inputs, outputs and success criteria.
@@ -25,7 +37,7 @@ This is a **project-first** path for applied AI engineering; phases represent sk
 
 1. Resolve the open quality/security/observability gaps in [rag-production](https://github.com/raphaelribeirob/rag-production).
 2. Make [agent-benchmark](https://github.com/raphaelribeirob/agent-benchmark) executable end-to-end with actual measurements.
-3. Implement the [01 Python & APIs](tracks/01-python-apis/README.md) project as a small, independent, tested service.
+3. Verify the [01 Python & APIs](tracks/01-python-apis/README.md) PR in GitHub Actions and Docker, then add measurable edge-case evaluations.
 4. Build the [04 LLM Engineering](tracks/04-llm-engineering/README.md) structured-output gateway and compare providers.
 5. Publish one capstone only after acceptance criteria pass.
 
