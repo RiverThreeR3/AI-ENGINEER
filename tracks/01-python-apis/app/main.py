@@ -18,8 +18,8 @@ app = FastAPI(
     description="Deterministic, caller-priced cost estimates. No model inference.",
     version="0.2.0",
 )
-app.add_middleware(RequestMetricsMiddleware)
 app.add_middleware(BodyLimitMiddleware, max_bytes=2048)
+app.add_middleware(RequestMetricsMiddleware)
 
 
 class BudgetRequest(BaseModel):
