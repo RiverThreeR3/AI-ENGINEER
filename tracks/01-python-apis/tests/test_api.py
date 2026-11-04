@@ -186,3 +186,42 @@ def test_rate_limiter_thread_safe() -> None:
         results = list(pool.map(lambda _: limiter.retry_after(), range(100)))
     assert results.count(None) == 25
     assert results.count(60) == 75
+
+
+
+def test_structured_metrics_exclude_sensitive_data(caplog: pytest.LogCaptureFixture) -> None:
+    import json
+
+    secret_marker = "never-log-this-secret"
+    with caplog.at_level("INFO", logger="budget_guard.requests"):
+        response = client.post(
+            "/v1/budget/check?private=" + secret_marker,
+            json=payload(),
+            headers={"X-API-Key": TEST_KEY},
+        )
+    assert response.status_code == 200
+    events = [json.loads(record.message) for record in caplog.records
+              if record.name == "budget_guard.requests"]
+    assert len(events) == 1
+    assert events[0]["event"] == "http_request"
+    assert events[0]["route"] == "budget_check"
+    assert events[0]["status"] == 200
+    assert events[0]["duration_ms"] >= 0
+    assert set(events[0]) == {"event", "route", "status", "duration_ms"}
+    assert secret_marker not in caplog.text
+    assert TEST_KEY not in caplog.text
+
+
+def test_structured_metrics_record_auth_failure_without_key(
+    caplog: pytest.LogCaptureFixture,
+) -> None:
+    import json
+
+    with caplog.at_level("INFO", logger="budget_guard.requests"):
+        response = client.post("/v1/budget/check", json=payload())
+    assert response.status_code == 401
+    events = [json.loads(record.message) for record in caplog.records
+              if record.name == "budget_guard.requests"]
+    assert len(events) == 1
+    assert events[0]["status"] == 401
+    assert "X-API-Key" not in caplog.text

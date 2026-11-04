@@ -59,6 +59,10 @@ Container runs as a non-root user. Docker was unavailable locally on 2026-11-02;
 - [GitHub Actions run 41625097153](https://github.com/RiverThreeR3/AIEngineer/actions/runs/41625097153) passed on 2026-11-03: pytest (including 10 new validation tests), Ruff, in-process benchmark, loopback TCP HTTP benchmark, Docker build and live-container HTTP smoke. CI job success does not validate production latency.
 - No model evaluation, provider calls, tokenizer accuracy, real pricing, deployment or production cost measurement is claimed.
 
+## Privacy-conscious observability (2026-11-04 increment)
+
+The pure ASGI `RequestMetricsMiddleware` emits one structured JSON log event per HTTP request through the Python logger `budget_guard.requests`: fixed route label (`budget_check`, `health`, or `other`), status code and duration in milliseconds. It intentionally does **not** record paths, query strings, headers, API keys, request bodies, or client IPs. Enable INFO logging in your deployment's logging configuration to collect these events. The default Uvicorn access logger is a **separate** channel and may log URLs/query strings; disable or redact access logs at the server and proxy before processing sensitive requests. No exporter, aggregation backend, distributed tracing or live production telemetry is implemented. The new tests check successful and unauthorized requests for structured fields and secret omission; CI results must be checked separately.
+
 ## Security, privacy and limitations
 
 - Single-key demonstration only. The fixed-window limiter is **per process** and resets on restart; replicas do not share a quota. For production, use HTTPS, per-tenant authentication, a distributed gateway limiter, monitoring, centralized secrets and ingress controls.

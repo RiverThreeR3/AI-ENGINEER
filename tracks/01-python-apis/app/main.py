@@ -7,6 +7,7 @@ from fastapi import Depends, FastAPI
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, field_validator
 
 from app.body_limit import BodyLimitMiddleware
+from app.observability import RequestMetricsMiddleware
 from app.security import require_access
 
 MILLION = Decimal("1000000")
@@ -17,6 +18,7 @@ app = FastAPI(
     description="Deterministic, caller-priced cost estimates. No model inference.",
     version="0.2.0",
 )
+app.add_middleware(RequestMetricsMiddleware)
 app.add_middleware(BodyLimitMiddleware, max_bytes=2048)
 
 

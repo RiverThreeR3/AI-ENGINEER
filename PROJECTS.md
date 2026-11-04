@@ -35,6 +35,12 @@
 - The benchmark uses an ephemeral key, binds to loopback, limits total requests to 60 and terminates its subprocess. These are demonstration controls, not distributed authentication or ingress protection.
 - Remaining: production authentication, shared quotas, deployment/rollback, deployed network metrics, dependency digest pinning and license decision. Track 01 remains **in progress**.
 
+## Track 01 incremental work — 2026-11-04
+
+- Added privacy-conscious pure ASGI request metrics (`app/observability.py`) with fixed route labels, HTTP status and elapsed milliseconds; no headers, query strings, bodies or client IPs in the application metrics.
+- Added two regression tests for structured output and authentication failures without logging secrets. This commit is **not** evidence of passing tests; consult the PR CI run for verification.
+- Default Uvicorn/proxy access logs are separate and must be configured to avoid leaking sensitive URL information. No telemetry backend, distributed rate limiter or deployment is claimed.
+
 ## Evidence checklist per project
 
 - Permanent commit SHA and exact installation/run commands
