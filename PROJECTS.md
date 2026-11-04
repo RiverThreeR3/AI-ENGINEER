@@ -1,13 +1,13 @@
 # AI Engineer Project Portfolio
 
-**Review date:** 2026-11-01. Statuses below describe *documented evidence*; no CI run or deployment was performed as part of organizing this hub.
+**Review date:** 2026-11-04. Statuses describe *documented evidence*. Module 01 unit/API tests passed locally (16 cases); GitHub CI, Docker and deployment remain unverified.
 
 | Project | Tracks | Status | Next acceptance gate |
 | --- | --- | --- | --- |
 | [rag-production](https://github.com/raphaelribeirob/rag-production) | 05, 07, 09, 10 | In progress | Fix real-model groundedness gap; add prompt-injection defense, telemetry and tests |
 | [agent-benchmark](https://github.com/raphaelribeirob/agent-benchmark) | 06, 07 | Scaffold | Implement task suite and measured comparison with deterministic test runner |
 | [InstantCloser public policy lab](projects/instantcloser/README.md) | 01, 06, 07, 10, 11 | Demo implementation; no real-model/production validation | Run CI; add independent held-out evals, authorized tool simulation, cost and latency measurements |
-| Python API foundations | 01 | Planned | Typed endpoints + pytest + lint + CI |
+| [Python API foundations](tracks/01-python-apis/README.md) | 01 | Implementation; 16 local tests passed | GitHub Actions lint + tests + Docker smoke test; evaluate failure cases |
 | Classical ML prediction service | 02 | Planned | Dataset baseline + holdout evaluation + reproducible API |
 | Deep learning training pipeline | 03 | Planned | Train/evaluate/save/reload a PyTorch model |
 | Structured-output LLM gateway | 04 | Planned | Provider interface, schema validation, streaming, retries and usage metrics |

@@ -1,0 +1,54 @@
+name: Python API module 01
+
+on:
+  push:
+    paths:
+      - "tracks/01-python-apis/**"
+      - ".github/workflows/python-apis.yml"
+  pull_request:
+    paths:
+      - "tracks/01-python-apis/**"
+      - ".github/workflows/python-apis.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  api-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: tracks/01-python-apis
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: tracks/01-python-apis/requirements-dev.txt
+      - name: Install pinned dependencies
+        run: python -m pip install -r requirements-dev.txt
+      - name: Lint
+        run: ruff check .
+      - name: Test
+        run: python -m pytest -q
+      - name: Compile
+        run: python -m compileall -q service.py tests
+      - name: Build Docker image
+        run: docker build -t ai-engineer-triage:ci .
+      - name: Smoke test Docker container
+        run: |
+          docker run --name ai-engineer-triage-ci -d -p 127.0.0.1:8765:8000 ai-engineer-triage:ci
+          for i in 1 2 3 4 5 6 7 8 9 10; do
+            if curl -fsS http://127.0.0.1:8765/healthz; then
+              exit 0
+            fi
+            sleep 1
+          done
+          docker logs ai-engineer-triage-ci
+          exit 1
+      - name: Stop Docker container
+        if: always()
+        run: docker rm -f ai-engineer-triage-ci || true
