@@ -8,6 +8,7 @@ This is the applied AI Engineering portfolio of [@raphaelribeirob](https://githu
 
 ## Navigate
 
+- [Five-pillar evidence map](PILLARS.md): software engineering, LLMs/RAG, agents, operations/evaluation and signal projects.
 - [Learning path](ROADMAP.md): foundations → LLM systems → production.
 - [Project portfolio](PROJECTS.md): existing evidence, planned builds and next steps.
 - [Engineering quality standard](ENGINEERING_STANDARDS.md): definition of done.
@@ -18,7 +19,7 @@ This is the applied AI Engineering portfolio of [@raphaelribeirob](https://githu
 
 | # | Track | Main deliverable | State |
 | --- | --- | --- | --- |
-| 01 | [Python & APIs](tracks/01-python-apis/README.md) | Tested FastAPI service | Planned |
+| 01 | [Python & APIs](tracks/01-python-apis/README.md) | Deterministic FastAPI triage baseline | Implementation; 16 local tests passed, CI/Docker pending |
 | 02 | [Machine Learning](tracks/02-machine-learning/README.md) | Measured ML prediction API | Planned |
 | 03 | [Deep Learning](tracks/03-deep-learning/README.md) | Reproducible PyTorch training loop | Planned |
 | 04 | [LLM Engineering](tracks/04-llm-engineering/README.md) | Structured-output LLM gateway | Planned |
