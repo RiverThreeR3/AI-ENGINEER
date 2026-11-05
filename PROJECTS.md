@@ -15,6 +15,15 @@ This page separates **merged code**, **work in an open pull request**, **separat
 
 The commercial InstantCloser app is **not** published here. Its capabilities, customers or production readiness must not be inferred from the public policy lab.
 
+## Course alignment and project progression
+
+The active project follows the [official Applied AI Engineer career route](https://github.com/rohitg00/ai-engineering-from-scratch/blob/main/learning-paths/applied-ai-engineer.json), mapped in [docs/COURSE_MAPPING.md](docs/COURSE_MAPPING.md). The upstream [Career Practice](https://github.com/rohitg00/ai-engineering-from-scratch/blob/main/learning-paths/CAREER-PRACTICE.md) guide recommends iterating on one coherent problem, not generating a fixed number of new repositories per week.
+
+- **One active flagship at a time** and at least one independently checkable milestone each week when feasible; a blocker is a legitimate result, not a fabricated completed project.
+- **One learning project stage per interactive session** per the upstream [build-project skill](https://github.com/rohitg00/ai-engineering-from-scratch/blob/main/skills/build-project/SKILL.md); never claim grader success without observing it.
+- Use [templates/EVIDENCE_BUNDLE.md](templates/EVIDENCE_BUNDLE.md) for a reproducible problem/baseline, tested original implementation, observed results, risks, customer/peer feedback where available, and a truthful CV-safe bullet.
+- The upstream reference implementation and local course certificate are **not** proof of original professional experience.
+
 ## Track 01 — AI Request Budget Guard
 
 **Source under review:** [PR #1](https://github.com/RiverThreeR3/AIEngineer/pull/1) on branch `feat/track01-budget-guard-20261101`.
