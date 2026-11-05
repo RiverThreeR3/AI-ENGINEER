@@ -29,3 +29,17 @@ coverage/
 /learning-artifacts/
 /private-learning/
 /private-resume/
+
+# Private learning progress and personal interview history
+/LEARNING.md
+/PROJECTS-LEARNING.md
+/INTERVIEW-LEARNING.md
+/MCP-LEARNING.md
+/AGENT-SKILLS-LEARNING.md
+/REVERSE-ENGINEERING-LEARNING.md
+/CLAUDE-CERTIFICATION.md
+
+# Private learner workspaces and personal professional files
+/learning-artifacts/
+/private-learning/
+/private-resume/
