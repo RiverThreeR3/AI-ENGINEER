@@ -15,9 +15,20 @@ This is a **project-first** path for applied AI engineering; phases represent sk
 
 **Primary upstream:** [rohitg00/ai-engineering-from-scratch](https://github.com/rohitg00/ai-engineering-from-scratch) (MIT). Use its 20-phase curriculum as the **default learning source**, not as an assertion that all 542 lessons have been completed. Select the exact lesson and phase for each daily lesson and link it in the daily report.
 
-**Market-first execution:** The single weekly engineering project is selected from verified current freelance demand. Map that project to the closest upstream phase and exercise; prioritize Phase 0 (tooling), Phase 11 (LLM engineering), Phase 13 (tools/protocols), Phase 14 (agent engineering), Phase 17 (infrastructure/production), Phase 18 (safety), and Phase 19 (capstone) when relevant. Learn prerequisite phases when gaps are evident; do not force a linear 542-lesson sequence ahead of client-relevant delivery.
+**Market-first execution:** The single active engineering project is selected from verified current freelance demand. A new week sets a new milestone for that same project; it does not require starting another project. Map that project to the closest upstream phase and exercise; prioritize Phase 0 (tooling), Phase 11 (LLM engineering), Phase 13 (tools/protocols), Phase 14 (agent engineering), Phase 17 (infrastructure/production), Phase 18 (safety), and Phase 19 (capstone) when relevant. Learn prerequisite phases when gaps are evident; do not force a linear 542-lesson sequence ahead of client-relevant delivery.
 
 **Daily evidence contract:** Upstream lesson URL + phase + concept, original implementation or exercise, test commands with actual outcomes, interview practice, and next learning gap. Do not equate reading upstream material, cloned examples, or mock evaluations with verified professional production experience.
+
+## Project cadence — upstream-aligned
+
+The upstream [build-project skill](https://github.com/rohitg00/ai-engineering-from-scratch/blob/main/skills/build-project/SKILL.md) prescribes **one project stage per learning session**, not a fixed number of new projects each week. Its [career practice guide](https://github.com/rohitg00/ai-engineering-from-scratch/blob/main/learning-paths/CAREER-PRACTICE.md) recommends deepening one coherent project across product, implementation, independent verification and iterative improvement.
+
+**Raphael portfolio policy (our adaptation, not an upstream quota):**
+- **One active flagship project at a time.** Do not start a new one just because Monday arrives; continue for as many weeks as verification requires.
+- **At least one auditable milestone per week when feasible**, expressed as a tested increment or a documented blocker, not a promise of a finished project. A BUILD session targets one bounded implementation stage; an AUDIT session verifies and repairs earlier work. Do not claim a passing stage without observed grader/test output.
+- Map each project to an upstream phase/lesson and, where relevant, a **related** upstream exercise, but keep all original portfolio code separate from upstream examples. Record the exact upstream reference and limits of the analogy.
+- Promote a project to portfolio-ready only after the acceptance checklist, security review, independent run/evaluation and honest limitations are documented. Record a follow-up iteration and feedback where available.
+- Keep **education/quiz records private** and only publicly share appropriate original code and non-sensitive evidence. Skills added to the professional CV require verified independent evidence; completing a tutorial alone is insufficient.
 
 ## Learning loop
 
