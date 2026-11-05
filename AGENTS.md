@@ -19,6 +19,13 @@ This repository is Raphael's public **original engineering portfolio**, not the 
 6. Preserve secrets, personal study history, job applications/CV, interview responses and private client data outside the public repository. Do not create or publish `LEARNING.md`, `PROJECTS-LEARNING.md` or `INTERVIEW-LEARNING.md` here. No fabricated scores or certificates.
 7. All repo documentation, PRs, lessons, commit messages and code comments must be **English**. If a verification is blocked, report the reason; never claim execution without observed output.
 
+## Recruiter-facing proof and private coaching separation
+
+- Update [docs/RECRUITER_GUIDE.md](docs/RECRUITER_GUIDE.md) when original project evidence changes. Recruiters should see a consistent path from `README.md` to `PROJECTS.md`, exact PR/commit/CI, measured outcomes, relevant skill, limitations and credible interview topics.
+- Link the same stable evidence in public case studies and the **private** master CV. Do not publish the CV or its Google Drive location to public GitHub, and do not edit LinkedIn or send applications without specific authorization.
+- Courses and interviews are conducted interactively with the learner in **ChatGPT**; a scheduled task can ask an unanswered question but cannot invent a reply, test pass or skill validation. Keep personal assessment answers/scores in a verified **private** progress store only. Never put a private tracking document link in this public repository.
+- Upstream learning → verified learner practice → original project changes → accepted testing/evaluation → truthful resume bullet → interview explanation. Only verified, publishable evidence passes to recruiter materials.
+
 ## Definition of done
 
 A project is **portfolio-ready** only when its relevant acceptance, reproducibility, evaluation, security, license, deployment-claim and documentation gates are satisfied. If a gate is missing, keep the honest status and define the next test. Cite original evidence; an attractive README alone is not a completion criterion.
