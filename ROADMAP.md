@@ -30,6 +30,12 @@ The upstream [build-project skill](https://github.com/rohitg00/ai-engineering-fr
 - Promote a project to portfolio-ready only after the acceptance checklist, security review, independent run/evaluation and honest limitations are documented. Record a follow-up iteration and feedback where available.
 - Keep **education/quiz records private** and only publicly share appropriate original code and non-sensitive evidence. Skills added to the professional CV require verified independent evidence; completing a tutorial alone is insufficient.
 
+## Applied AI Engineer readiness gates
+
+The canonical route is upstream [`learning-paths/applied-ai-engineer.json`](https://github.com/rohitg00/ai-engineering-from-scratch/blob/main/learning-paths/applied-ai-engineer.json): **common core** (prompts, schemas, retrieval/tools), **role practice** (evals, cost, guardrails), **proof project** (bounded production-style service), and **interview/readiness evidence** (rollout and recovery decisions). Use the [crosswalk](docs/COURSE_MAPPING.md) to link each local track to relevant upstream phases and lessons; do not confuse 20 phase IDs with the 11 local track IDs.
+
+**Proof before promotion:** user contract, grounded tool/retrieval boundaries where relevant, held-out evaluation, latency-and-cost scorecard, security, and only independently verified deployment or rollout claims. Follow the [daily workflow](docs/DAILY_WORKFLOW.md); learner scores and private resume data do not belong in public GitHub.
+
 ## Learning loop
 
 1. Define user problem, inputs, outputs and success criteria.
