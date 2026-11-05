@@ -12,6 +12,17 @@ The **canonical upstream curriculum** for this portfolio is [rohitg00/ai-enginee
 
 Each daily lesson should cite the relevant upstream phase and exact lesson URL, connect it to a real weekly project, and record independently verified tests. The weekly project is still selected from current client demand. Other open-source repositories are secondary references; see [RESOURCES.md](RESOURCES.md) and [ROADMAP.md](ROADMAP.md).
 
+## Curriculum-to-portfolio workflow
+
+The **main curriculum** is [AI Engineering From Scratch](https://github.com/rohitg00/ai-engineering-from-scratch). Its [Applied AI Engineer / LLM Product Engineering career route](https://github.com/rohitg00/ai-engineering-from-scratch/blob/main/learning-paths/applied-ai-engineer.json) sets the professional evidence targets. The **20 upstream course phases** and the **11 local application tracks** are different systems; no lesson or track is implied complete by being listed.
+
+- [Official 20-phase → local 11-track map](docs/COURSE_MAPPING.md)
+- [Daily learning, BUILD/AUDIT and interview flow](docs/DAILY_WORKFLOW.md)
+- [Evidence-based project and resume template](templates/EVIDENCE_BUNDLE.md)
+- [Agent and Codex project instructions](AGENTS.md)
+
+**Cadence:** one original flagship project until its acceptance gates pass, with verifiable weekly milestones—not a prescribed number of new projects per week. Quiz/interview answers, personal progress and the professional resume stay private.
+
 ## Navigate
 
 - [Learning path](ROADMAP.md): foundations → LLM systems → production.
