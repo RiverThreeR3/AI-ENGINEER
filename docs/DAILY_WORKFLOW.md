@@ -14,6 +14,16 @@ The existing external ChatGPT automation is scheduled for **08:00 America/Sao_Pa
 
 The scheduled routine alternates BUILD and AUDIT by local calendar days from 2026-11-05 (BUILD) and 2026-11-06 (AUDIT). Sundays do not cancel either part of the learning routine.
 
+## ChatGPT as the interactive classroom
+
+**Location of interactive practice:** ChatGPT conversation. The scheduled report prepares a complete English lesson, 10–20-minute practical exercise, and one unanswered authentic interview-bank question. The learner must **reply in ChatGPT** to practice. The assistant then asks follow-ups, marks real responses against verified rubrics, and revisits misunderstandings. A scheduled report cannot independently complete a live mock interview, grade unanswered questions, or assume a response in a different thread is visible.
+
+**Private persistence:** The user's restricted-access Google Drive learning tracker can be read and updated only via successful, explicitly verified connected Drive actions. It may summarize actual lesson responses, phase checks and interview gaps with timestamps; the tracker is not publicly linked here. If cross-chat or automated retrieval cannot see a real learner response, record `Pending / not verified`, request that response in the active ChatGPT lesson, and never invent completion. The full curriculum's `LEARNING.md` and course project's `PROJECTS-LEARNING.md` are optional private local state files, not public portfolio files.
+
+**Public career proof:** The sanitized [recruiter-facing evidence map](RECRUITER_GUIDE.md) links each project to real GitHub code, acceptance criteria, reproducible checks and honest limitations. The private professional resume and its weekly refinements reference the **same stable project/CI links**. Interview coaching targets these same technical decisions, but personal answers/scores do not become recruiter-visible content.
+
+**Weekly reconciliation:** Match the official `applied-ai-engineer.json` readiness criteria to: upstream lesson → real learner exercise → project PR/commit SHA → reproducible test/evaluation → employer-safe CV bullet → interview deep-dive. Flag missing steps and do not promote learning-only accomplishments to CV experience.
+
 ## Official learning contracts
 
 - [`start-learning`](https://github.com/rohitg00/ai-engineering-from-scratch/blob/main/skills/start-learning/SKILL.md) and [`find-your-level`](https://github.com/rohitg00/ai-engineering-from-scratch/blob/main/skills/find-your-level/SKILL.md): initial questions, ten-question placement and a genuine learner-owned plan.

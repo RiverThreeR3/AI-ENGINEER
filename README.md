@@ -6,11 +6,25 @@ This is the applied AI Engineering portfolio of [@raphaelribeirob](https://githu
 
 **Current status:** learning tracks and project requirements are organized. A folder does **not** mean its project is complete.
 
+## Recruiter quick start
+
+**[Review this portfolio: evidence, current projects, skill-to-proof map and technical interview topics](docs/RECRUITER_GUIDE.md)**
+
+| What to verify | Where |
+| --- | --- |
+| Current technical work and exact status | [PROJECTS.md](PROJECTS.md) and [Budget Guard PR #1](https://github.com/RiverThreeR3/AIEngineer/pull/1), still in review |
+| Independently inspectable public demo | [InstantCloser deterministic policy lab](projects/instantcloser/README.md) |
+| Technical proof and limitations | [Evidence bundle template](templates/EVIDENCE_BUNDLE.md) and [engineering standards](ENGINEERING_STANDARDS.md) |
+| Curriculum alignment | [Official course-to-portfolio mapping](docs/COURSE_MAPPING.md) |
+| Interview preparation topics | [Recruiter technical deep-dives](docs/RECRUITER_GUIDE.md#the-interview-connection) |
+
+The professional English CV is sent privately to recruiters and references **these same public project links**. Coaching history, grades, interview answers and the CV's private Drive folder are not published. No course lesson is represented as professional employment.
+
 ## Primary learning repository
 
 The **canonical upstream curriculum** for this portfolio is [rohitg00/ai-engineering-from-scratch](https://github.com/rohitg00/ai-engineering-from-scratch) (MIT license). Its lessons, hands-on exercises, and practical projects provide the default learning sequence. This repository remains Raphael's **original work and evidence portfolio**, not a fork or mirror of the upstream course. 
 
-Each daily lesson should cite the relevant upstream phase and exact lesson URL, connect it to a real weekly project, and record independently verified tests. The weekly project is still selected from current client demand. Other open-source repositories are secondary references; see [RESOURCES.md](RESOURCES.md) and [ROADMAP.md](ROADMAP.md).
+Each daily lesson should cite the relevant upstream phase and exact lesson URL, connect it to a real weekly project, and record independently verified tests. The one active flagship project is selected from verified client demand and progressed through checkable milestones, not replaced automatically each week. Other open-source repositories are secondary references; see [RESOURCES.md](RESOURCES.md) and [ROADMAP.md](ROADMAP.md).
 
 ## Curriculum-to-portfolio workflow
 
@@ -35,7 +49,7 @@ The **main curriculum** is [AI Engineering From Scratch](https://github.com/rohi
 
 | # | Track | Main deliverable | State |
 | --- | --- | --- | --- |
-| 01 | [Python & APIs](tracks/01-python-apis/README.md) | Tested FastAPI service | Planned |
+| 01 | [Python & APIs](tracks/01-python-apis/README.md) | Tested FastAPI service | [In open PR #1](https://github.com/RiverThreeR3/AIEngineer/pull/1); not merged or deployed |
 | 02 | [Machine Learning](tracks/02-machine-learning/README.md) | Measured ML prediction API | Planned |
 | 03 | [Deep Learning](tracks/03-deep-learning/README.md) | Reproducible PyTorch training loop | Planned |
 | 04 | [LLM Engineering](tracks/04-llm-engineering/README.md) | Structured-output LLM gateway | Planned |
