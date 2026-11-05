@@ -27,3 +27,9 @@ A project can be labeled **portfolio-ready** only when applicable gates below pa
 - Report genuine status and known gaps.
 - Credit upstream repositories and retain required notices/licenses.
 - Screenshots and demos must show actual behavior, not only mockups.
+
+## Evidence bundle and career claims
+
+Use [templates/EVIDENCE_BUNDLE.md](templates/EVIDENCE_BUNDLE.md) with every original project. Compare against a manual or deterministic baseline; independently inspect agent-generated patches; test positive, failing and boundary cases; label mock, synthetic, peer-simulated, live-model and deployed results precisely. When available, retain a deliberately failing regression test before the fix, a feedback-driven iteration, and a comparable cost-per-accepted-task report including failed attempts, retries and assumed human review cost.
+
+Use the upstream [Career Practice guide](https://github.com/rohitg00/ai-engineering-from-scratch/blob/main/learning-paths/CAREER-PRACTICE.md) as the rubric; never claim portfolio-ready solely because a tutorial, CI badge or staged project was completed. Keep learner assessment history and resumes private.

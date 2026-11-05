@@ -2,6 +2,10 @@
 
 **Status:** Planned (change only when backed by evidence)
 
+## Course alignment and evidence
+
+Link the exact [AI Engineering From Scratch](https://github.com/rohitg00/ai-engineering-from-scratch) phase/lesson and related upstream project if applicable. Note why this is an **original** implementation and how it relates to the [Applied AI Engineer career route](https://github.com/rohitg00/ai-engineering-from-scratch/blob/main/learning-paths/applied-ai-engineer.json). Complete [the evidence bundle](EVIDENCE_BUNDLE.md) with observed results, safe source links and a resume-safe claim. Keep learning grades private.
+
 ## Problem and intended user
 Describe the specific problem, why it matters, and who needs it.
 

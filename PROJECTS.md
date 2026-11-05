@@ -29,6 +29,12 @@
 
 These are **learning references**, not proof the upstream exercises are installed, completed, or reused in Raphael's projects. Do not work on unrelated legacy repositories solely because they appear as links here; follow the existing authorized-repository rules for any actual write.
 
+## Project proof and reporting
+
+Each original project should map to the verified upstream curriculum (see [20-phase crosswalk](docs/COURSE_MAPPING.md)), using the official [Applied AI Engineer career route](https://github.com/rohitg00/ai-engineering-from-scratch/blob/main/learning-paths/applied-ai-engineer.json) for readiness targets. Use [the evidence bundle](templates/EVIDENCE_BUNDLE.md) to track real inputs, negative cases, CI at an exact SHA, run environment, independently measured metrics, security boundaries, limitations and next acceptance gate.
+
+The official `build-project` tutor advances **one learning stage per session**, not one new project every week. This portfolio keeps one current flagship project until it is independently ready or a justified stop/pivot is documented. Course examples, local course certificates and automated code generation are **not** professional experience by themselves.
+
 ## Evidence checklist per project
 
 - Permanent commit SHA and exact installation/run commands
