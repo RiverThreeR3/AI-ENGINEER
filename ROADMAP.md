@@ -11,6 +11,14 @@ This is a **project-first** path for applied AI engineering; phases represent sk
 | Production engineering | 09–10 | Deploy, observe, secure and cost-control an AI system |
 | Capstone | 11 | Deliver a full customer-oriented application |
 
+## Canonical learning backbone
+
+**Primary upstream:** [rohitg00/ai-engineering-from-scratch](https://github.com/rohitg00/ai-engineering-from-scratch) (MIT). Use its 20-phase curriculum as the **default learning source**, not as an assertion that all 542 lessons have been completed. Select the exact lesson and phase for each daily lesson and link it in the daily report.
+
+**Market-first execution:** The single weekly engineering project is selected from verified current freelance demand. Map that project to the closest upstream phase and exercise; prioritize Phase 0 (tooling), Phase 11 (LLM engineering), Phase 13 (tools/protocols), Phase 14 (agent engineering), Phase 17 (infrastructure/production), Phase 18 (safety), and Phase 19 (capstone) when relevant. Learn prerequisite phases when gaps are evident; do not force a linear 542-lesson sequence ahead of client-relevant delivery.
+
+**Daily evidence contract:** Upstream lesson URL + phase + concept, original implementation or exercise, test commands with actual outcomes, interview practice, and next learning gap. Do not equate reading upstream material, cloned examples, or mock evaluations with verified professional production experience.
+
 ## Learning loop
 
 1. Define user problem, inputs, outputs and success criteria.
