@@ -4,6 +4,7 @@
 
 | Project | Tracks | Status | Next acceptance gate |
 | --- | --- | --- | --- |
+| [AI Request Budget Guard](https://github.com/RiverThreeR3/AIEngineer/pull/1) | 01 (Python APIs), with LLM budget / FinOps references | Open PR; deterministic service, not deployed or a real-model feature | Independently verify current PR SHA/CI, security boundaries, measurement scope and review decision |
 | [rag-production](https://github.com/raphaelribeirob/rag-production) | 05, 07, 09, 10 | In progress | Fix real-model groundedness gap; add prompt-injection defense, telemetry and tests |
 | [agent-benchmark](https://github.com/raphaelribeirob/agent-benchmark) | 06, 07 | Scaffold | Implement task suite and measured comparison with deterministic test runner |
 | [InstantCloser public policy lab](projects/instantcloser/README.md) | 01, 06, 07, 10, 11 | Demo implementation; no real-model/production validation | Run CI; add independent held-out evals, authorized tool simulation, cost and latency measurements |
@@ -16,6 +17,10 @@
 | Fine-tuning vs alternatives | 08 | Planned | Compare baseline, RAG and fine-tune on fixed test data |
 | Production AI service | 09, 10 | Planned | Docker, monitoring, rate limits, rollback, budget and security test |
 | AI product capstone | 11 | Planned | End-to-end demo and documented real use case |
+
+## Recruiter evidence bridge
+
+Read the [recruiter guide](docs/RECRUITER_GUIDE.md) for project links, defensible skills, current proof gaps and technical deep-dive questions. This project index is the public reference for the **same** evidence used in the private professional resume. Never publish private learner progress, interview scores, CV contents or client data.
 
 ## Active project and upstream mapping
 
