@@ -6,6 +6,17 @@ A project-first portfolio focused on Python services, LLM engineering, RAG, tool
 
 **Repository:** [RiverThreeR3/AIEngineer](https://github.com/RiverThreeR3/AIEngineer) · **Last portfolio review:** 2026-11-04
 
+## Primary curriculum and professional route
+
+The **main learning source** is [AI Engineering From Scratch](https://github.com/rohitg00/ai-engineering-from-scratch), with the official [Applied AI Engineer / LLM Product Engineering career route](https://github.com/rohitg00/ai-engineering-from-scratch/blob/main/learning-paths/applied-ai-engineer.json). The upstream course has **20 phases**; this original portfolio has **11 applied tracks**. They are mapped, not copied or considered completed.
+
+- [Full 20-phase to 11-track mapping](docs/COURSE_MAPPING.md) — official phases, skill targets, active project correspondence and evidence gates.
+- [Daily lesson, BUILD/AUDIT and interview workflow](docs/DAILY_WORKFLOW.md) — no invented completion grades or new-projects-per-week quota.
+- [Project evidence bundle template](templates/EVIDENCE_BUNDLE.md) — project outcomes, measured quality, costs, security, feedback and resume-safe claims.
+- [Coding agent rules](AGENTS.md) — code ownership, review requirements, permission boundaries and public/private data separation.
+
+**Working cadence:** one active flagship project until its real acceptance gates pass. Aim for an auditable weekly milestone, not an artificial weekly project count. Learner assessment scores and the professional CV remain private.
+
 ## Featured work
 
 Start with the implementation, evidence and limitations—not the number of folders.
@@ -22,7 +33,7 @@ Start with the implementation, evidence and limitations—not the number of fold
 
 ## What I am building
 
-The learning path follows 11 tracks, with one completed and reproducible engineering outcome required before claiming progress to the next:
+The applied portfolio follows 11 tracks. They are aligned with the upstream curriculum; completion must be established from independent, reproducible evidence rather than folder existence:
 
 | Track | Focus | Status in this repository |
 | --- | --- | --- |
@@ -41,7 +52,8 @@ The learning path follows 11 tracks, with one completed and reproducible enginee
 ## How to review this portfolio
 
 - **[Project evidence and current gates](PROJECTS.md):** what was built, links to CI and what is still missing.
-- **[Learning roadmap](ROADMAP.md):** sequence of projects and interview-focused engineering outcomes.
+- **[Learning roadmap](ROADMAP.md):** career-aligned project sequence and verified next steps.
+- **[Curriculum crosswalk](docs/COURSE_MAPPING.md)** · **[Daily learning and delivery method](docs/DAILY_WORKFLOW.md)**.
 - **[Engineering standards](ENGINEERING_STANDARDS.md):** reproducibility, security, evaluation and definition of done.
 - **[Contributor workflow](CONTRIBUTING.md)** · **[Project README template](templates/PROJECT_README.md)** · **[External resources](RESOURCES.md)**.
 
