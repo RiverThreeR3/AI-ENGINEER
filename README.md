@@ -6,6 +6,12 @@ This is the applied AI Engineering portfolio of [@raphaelribeirob](https://githu
 
 **Current status:** learning tracks and project requirements are organized. A folder does **not** mean its project is complete.
 
+## Primary learning repository
+
+The **canonical upstream curriculum** for this portfolio is [rohitg00/ai-engineering-from-scratch](https://github.com/rohitg00/ai-engineering-from-scratch) (MIT license). Its lessons, hands-on exercises, and practical projects provide the default learning sequence. This repository remains Raphael's **original work and evidence portfolio**, not a fork or mirror of the upstream course. 
+
+Each daily lesson should cite the relevant upstream phase and exact lesson URL, connect it to a real weekly project, and record independently verified tests. The weekly project is still selected from current client demand. Other open-source repositories are secondary references; see [RESOURCES.md](RESOURCES.md) and [ROADMAP.md](ROADMAP.md).
+
 ## Navigate
 
 - [Learning path](ROADMAP.md): foundations → LLM systems → production.
