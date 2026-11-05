@@ -15,3 +15,17 @@ node_modules/
 dist/
 build/
 coverage/
+
+# Private learner state and interview history (never publish to a public portfolio)
+/LEARNING.md
+/PROJECTS-LEARNING.md
+/INTERVIEW-LEARNING.md
+/MCP-LEARNING.md
+/AGENT-SKILLS-LEARNING.md
+/REVERSE-ENGINEERING-LEARNING.md
+/CLAUDE-CERTIFICATION.md
+
+# Local learner records, personal resume and draft applications
+/learning-artifacts/
+/private-learning/
+/private-resume/
