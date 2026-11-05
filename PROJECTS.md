@@ -17,6 +17,18 @@
 | Production AI service | 09, 10 | Planned | Docker, monitoring, rate limits, rollback, budget and security test |
 | AI product capstone | 11 | Planned | End-to-end demo and documented real use case |
 
+## Active project and upstream mapping
+
+**Portfolio cadence:** one active project, one independently checkable weekly milestone when feasible, and one bounded implementation stage per BUILD session. These are our operating targets; the upstream curriculum prescribes **one stage per tutor session** and **does not set a projects-per-week quota**. Keep the active project through multiple weeks if needed. Project selection remains grounded in current client-market requirements.
+
+| Priority | Raphael project / actual status | Closest upstream learning or practical reference | Next verified evidence |
+| --- | --- | --- | --- |
+| Active | [AI Request Budget Guard — Track 01 PR #1](https://github.com/RiverThreeR3/AIEngineer/pull/1), in review; not a deployed or completed portfolio item | [LLM cost optimization](https://github.com/rohitg00/ai-engineering-from-scratch/blob/main/phases/11-llm-engineering/11-caching-cost/docs/en.md) and [FinOps for LLMs](https://github.com/rohitg00/ai-engineering-from-scratch/blob/main/phases/17-infrastructure-and-production/27-finops-llms/docs/en.md); related course project [Token Counter and Cost Meter](https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/projects/token-counter-and-cost-meter) **is not identical** to this API | Validate CI against the latest PR SHA, security and rate-limit boundaries, truthful cost assumptions, and release readiness before completion |
+| Next candidate, existing WIP | [rag-production](https://github.com/raphaelribeirob/rag-production) | [Retrieval Evaluation Lab](https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/projects/retrieval-evaluation-lab) | Measured retrieval and answer-quality failures, corrected evaluation and regression evidence |
+| Next candidate, scaffold | [agent-benchmark](https://github.com/raphaelribeirob/agent-benchmark) | [Agent Trace Debugger](https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/projects/agent-trace-debugger) | Executable task suite, trace evidence, tests and meaningful measurements |
+
+These are **learning references**, not proof the upstream exercises are installed, completed, or reused in Raphael's projects. Do not work on unrelated legacy repositories solely because they appear as links here; follow the existing authorized-repository rules for any actual write.
+
 ## Evidence checklist per project
 
 - Permanent commit SHA and exact installation/run commands
