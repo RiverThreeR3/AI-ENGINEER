@@ -24,13 +24,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "24"
-      - run: node --test tests/ai-engineer-progress.test.mjs
+      - run: node --test tests/ai-engineer-progress.test.mjs tests/ai-engineering-from-scratch-alignment.test.mjs
       - name: Report visible progress
         run: |
           {
             echo "### Verified AI Engineer progress ledger"
             echo '~~~'
             node scripts/ai-engineer-progress.mjs
+            echo ''
+            node scripts/ai-engineering-from-scratch-alignment.mjs
             echo '~~~'
             echo "A ledger entry is not independent evidence of successful external CI or customer delivery."
           } >> "$GITHUB_STEP_SUMMARY"
