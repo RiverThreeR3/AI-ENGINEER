@@ -12,6 +12,8 @@ This is the **public evidence hub** for reviewing original engineering work, not
 
 ## Current project proof
 
+The combined workflow's **single active engineering flagship** is [AGESOMA Knowledge API PR #2](https://github.com/RiverThreeR3/AGESOMA-PROJECTS/pull/2), in the separate authorized commercial evidence repository. Review its current SHA, tests and limitations before attributing any contribution to Raphael. The Budget Guard PR below is **audit/maintenance only**, not a second active feature build.
+
 | Project / access | Engineering skills a reviewer can inspect | Evidence and honest limitations | Interview deep-dive |
 | --- | --- | --- | --- |
 | [AI Request Budget Guard — PR #1](https://github.com/RiverThreeR3/AIEngineer/pull/1) (open PR; **not merged or deployed**) | Python, FastAPI request contracts, deterministic budget estimation, API guard and tests, bounded errors and observability in proposed code | Review current PR head and CI for **that exact SHA**. Synthetic input costs and local tests do not prove actual provider billing or live service reliability. | How would you calculate cost per successful LLM task and prevent rate-limit bypass across multiple instances? |
@@ -37,10 +39,10 @@ Never mark a skill complete merely because its upstream course lesson is listed 
 
 ## The interview connection
 
-This public guide identifies **technical topics** suitable for discussion; personal mock interview answers, scores, full study notes, job applications, and coaching history remain **private**. Interactive lessons and interviews are practiced with Raphael inside ChatGPT using the [official course](https://github.com/rohitg00/ai-engineering-from-scratch) and [bank](https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/interviews). Only verified project improvements and defensible technical explanations are promoted to this public evidence hub.
+This public guide identifies **technical topics** suitable for discussion; personal mock interview answers, scores, full study notes, job applications, and coaching history remain **private**. Scheduled lessons and interview preparation are **expository reading materials** in Brazilian Portuguese, with authentic English prompts and original English model answers, referencing the [official course](https://github.com/rohitg00/ai-engineering-from-scratch) and [bank](https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/interviews). This is not the interactive upstream skills assessment, and it produces no learner score or competence claim. Only verified project improvements and defensible technical explanations are promoted to this public evidence hub.
 
 For each demonstrated capability, the internal process connects:
-**official lesson → learner response/feedback (private) → original GitHub change → exact-SHA tests and evaluation → CV-safe bullet in the private master resume → interview explanation and trade-offs.**
+**official lesson presented (reading only) → optional independently observed learner demonstration (private) → attributable original GitHub change → exact-SHA tests and evaluation → CV-safe bullet in the private master resume → interview explanation and trade-offs.**
 
 ## Resume and identity boundaries
 
@@ -50,4 +52,4 @@ A professional resume or recruiter outreach can refer to this verified public po
 
 ## Next acceptance gate
 
-Review and merge the current Budget Guard PR only after current-commit verification and human review; expand its precise evidence bundle. Subsequent lessons and interview practice should target its genuine gaps instead of creating new projects to increase repository count.
+Prioritize verification and reviewable progress on the separately hosted [Knowledge API PR #2](https://github.com/RiverThreeR3/AGESOMA-PROJECTS/pull/2); keep Budget Guard PR #1 in the audit queue for exact-SHA CI, security and conflict review. **Never auto-merge** either PR. Link commercial evidence here only with correct status and verified attribution.
