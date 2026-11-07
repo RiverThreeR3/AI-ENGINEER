@@ -1,55 +1,54 @@
-# Recruiter Guide — Raphael Ribeiro | Applied AI Engineering
+# Engineering Evidence — Raphael Ribeiro
 
-This is the **public evidence hub** for reviewing original engineering work, not a list of completed course certificates. The focus is reliable Python APIs, LLM product engineering, tool-use safety, RAG, evaluation, and operations. Claims are deliberately limited to what a reviewer can inspect.
+A short guide to **what is implemented and publicly inspectable**. This page is not a training transcript, a list of planned products or a claim of client delivery.
 
-## Start here
+## Current implementations
 
-1. [Portfolio home](../README.md): what is available and its current status.
-2. [Project evidence index](../PROJECTS.md): committed code, in-review changes, acceptance gates and explicit limitations.
-3. [Engineering standards](../ENGINEERING_STANDARDS.md): what is required before calling work portfolio-ready.
-4. [Course-to-practice map](COURSE_MAPPING.md): how the official AI Engineering From Scratch curriculum supports the original portfolio.
-5. [Public commercial case destination](https://github.com/RiverThreeR3/AGESOMA-PROJECTS): separate authorized public cases; verify individual examples instead of assuming the whole agency codebase is complete.
+### 1. Knowledge API — cited document retrieval
 
-## Current project proof
+**What it does:** A FastAPI service searches five synthetic policy documents, scores lexical matches and returns source-line citations or abstains when no matching evidence is found. It is an extractive baseline, **not** an LLM-based RAG product.
 
-The combined workflow's **single active engineering flagship** is [AGESOMA Knowledge API PR #2](https://github.com/RiverThreeR3/AGESOMA-PROJECTS/pull/2), in the separate authorized commercial evidence repository. Review its current SHA, tests and limitations before attributing any contribution to Raphael. The Budget Guard PR below is **audit/maintenance only**, not a second active feature build.
+**Inspect:** [Open PR #2](https://github.com/RiverThreeR3/AGESOMA-PROJECTS/pull/2) · [code and tests at `62ccc7e`](https://github.com/RiverThreeR3/AGESOMA-PROJECTS/tree/62ccc7e4584bfcf68f07de2706a75580828c6715/projects/knowledge-api) · [GitHub Actions run for this SHA](https://github.com/RiverThreeR3/AGESOMA-PROJECTS/actions/runs/42366822290).
 
-| Project / access | Engineering skills a reviewer can inspect | Evidence and honest limitations | Interview deep-dive |
-| --- | --- | --- | --- |
-| [AI Request Budget Guard — PR #1](https://github.com/RiverThreeR3/AIEngineer/pull/1) (open PR; **not merged or deployed**) | Python, FastAPI request contracts, deterministic budget estimation, API guard and tests, bounded errors and observability in proposed code | Review current PR head and CI for **that exact SHA**. Synthetic input costs and local tests do not prove actual provider billing or live service reliability. | How would you calculate cost per successful LLM task and prevent rate-limit bypass across multiple instances? |
-| [InstantCloser policy lab](../projects/instantcloser/README.md) (merged public demo) | Deterministic decision policy, consent/opt-out guards, prompt-injection handling examples, and reproducible regression fixtures | Demo with 11 hand-authored synthetic scenarios. No real-model accuracy, customer conversion, tenant security or production integration claim. | What is the trust boundary between a model's proposed action and an authorized external tool call? |
-| [RAG Production](https://github.com/raphaelribeirob/rag-production) (separate public WIP) | Retrieval architecture and evaluation design, subject to current independent repository review | Groundedness/faithfulness gap has been documented; this is **not** a certified deployed or finished portfolio project. | How would you build a hold-out retrieval evaluation and block unsupported answers? |
-| [Agent Benchmark](https://github.com/raphaelribeirob/agent-benchmark) (separate public scaffold) | Early benchmarking structure only | No end-to-end benchmark or measured agent performance is claimed. | What distinguishes a deterministic agent regression test from a real evaluation of task success? |
+**Observed state:** CI completed successfully for the reviewed commit. The PR is open; there is no verified deployment, live customer data, tenant authorization or independent held-out quality result. Source code is maintained in AGESOMA-PROJECTS, not duplicated here.
 
-**Verification method:** Open the linked source/PR, identify its exact commit, reproduce documented commands, inspect test output and failure cases, read the limitations, and distinguish a local demo from a deployed system. A successful older CI run must not be attributed to a newer commit. Public accessibility should be tested without an authenticated account before sending an application where feasible.
+### 2. AI Request Budget Guard — bounded cost estimation API
 
-## Skill-to-proof reconciliation
+**What it does:** A FastAPI endpoint calculates estimated per-request cost using strict numeric contracts and `Decimal`. The proposed service includes an API-key check, request-size validation, per-process rate limiting and privacy-conscious request metrics.
 
-The [official Applied AI Engineer route](https://github.com/rohitg00/ai-engineering-from-scratch/blob/main/learning-paths/applied-ai-engineer.json) expects structured outputs, grounded tool/retrieval use, evaluations/guardrails, quality-latency-cost accounting, and reasoned deployment/rollback controls.
+**Inspect:** [Open PR #1](https://github.com/RiverThreeR3/AIEngineer/pull/1) · [implementation at `6a3b11f`](https://github.com/RiverThreeR3/AIEngineer/tree/6a3b11f38e41b857326bcbf99e97ed3a34b07b65/tracks/01-python-apis) · [GitHub Actions run for this SHA](https://github.com/RiverThreeR3/AIEngineer/actions/runs/41823927651).
 
-| Career skill | Current evidence location | What is still required before a strong CV claim |
+**Observed state:** CI completed successfully on the reviewed commit. The PR remains open and currently has a merge conflict. It uses caller-supplied token counts and prices; it does not bill a provider, enforce distributed budgets or run in production.
+
+### 3. InstantCloser Decision Policy Lab — rule-based action selection
+
+**What it does:** A pure Python function proposes a next action for synthetic sales messages while applying consent, opt-out and objection priorities. It flags some instruction-override phrases and labels sensitive steps for human approval. The [evaluator](../projects/instantcloser/evaluate.py) compares actions against **11 hand-authored synthetic scenarios**.
+
+**Inspect:** [Project explanation](../projects/instantcloser/README.md) · [policy code](../projects/instantcloser/agent.py) · [fixtures](../projects/instantcloser/scenarios.json) · [unit tests](../projects/instantcloser/tests/test_agent.py).
+
+**Observed state:** Runnable code is present in `main`; tests and evaluation commands are documented. An independent CI result for this specific component was **not confirmed during this audit**. The lab executes no external actions and does not establish real-model security, customer outcomes or production readiness.
+
+### 4. RAG Production — retrieval and faithfulness measurement
+
+**What it does:** A separate work-in-progress pipeline combines document ingestion, embedding retrieval over PostgreSQL/pgvector, answer providers, citations and evaluation tooling.
+
+**Inspect:** [Public source, architecture and evaluation report](https://github.com/raphaelribeirob/rag-production).
+
+**Observed state:** Its own README reports a prior local real-model faithfulness score of **0.647**, below the project threshold **0.85**. Those figures were **not independently rerun** in this audit. It remains work in progress, with unresolved groundedness and security/observability gaps.
+
+## Experimental work
+
+[Agent Benchmark](https://github.com/raphaelribeirob/agent-benchmark) is currently a scaffold for comparing agents with and without self-correction. Its documented benchmark results are **not yet available**. It is not included among validated engineering results.
+
+## What the evidence means
+
+| Evidence | What it establishes | What it does not establish |
 | --- | --- | --- |
-| Python API engineering | Budget Guard PR #1 | Merge/review status, exact-SHA test evidence and clear demonstration scope |
-| Deterministic safety and human approval | InstantCloser public lab | Broader independent cases, adversarial testing, real authorization before any external actions |
-| LLM reliability, JSON schemas, RAG | RAG external WIP; local LLM track still planned | Working original LLM flow, grounded evaluation and bounded failures |
-| Agents and evaluations | Agent Benchmark scaffold; InstantCloser synthetic fixtures | Executable held-out benchmark, tool-permission failures, measurable quality/latency/cost |
-| Production operations and deployment | General engineering standards; project-specific work in progress | Independently verified deployment, meaningful monitoring, data boundaries and rollback evidence |
+| Source files and tests | Inspectable implementation and specified behavior | Independent test execution, reliability or personal authorship |
+| CI linked to a commit SHA | A recorded pipeline result on that revision | Production operation or real-user quality |
+| Synthetic evaluations | Behavior on their stated examples and fixtures | Generalization to production inputs or customer ROI |
+| Open pull request | Proposed, inspectable changes | Merge, release, deployed service or accepted customer work |
 
-Never mark a skill complete merely because its upstream course lesson is listed or a project scaffold exists.
+Only attributable contributions and independently supported outcomes should become individual skill or resume claims. No private code, customer information or personal assessment history is included here.
 
-## The interview connection
-
-This public guide identifies **technical topics** suitable for discussion; personal mock interview answers, scores, full study notes, job applications, and coaching history remain **private**. Scheduled lessons and interview preparation are **expository reading materials** in Brazilian Portuguese, with authentic English prompts and original English model answers, referencing the [official course](https://github.com/rohitg00/ai-engineering-from-scratch) and [bank](https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/interviews). This is not the interactive upstream skills assessment, and it produces no learner score or competence claim. Only verified project improvements and defensible technical explanations are promoted to this public evidence hub.
-
-For each demonstrated capability, the internal process connects:
-**official lesson presented (reading only) → optional independently observed learner demonstration (private) → attributable original GitHub change → exact-SHA tests and evaluation → CV-safe bullet in the private master resume → interview explanation and trade-offs.**
-
-## Resume and identity boundaries
-
-The canonical professional resume is kept in a **private** Google Drive folder and may be shared or attached by Raphael to a specific recruiter. The public repository never exposes personal contact details, the private Drive URL, lesson grades or a claim of automatic LinkedIn synchronization.
-
-A professional resume or recruiter outreach can refer to this verified public portfolio. **No automatic resume sharing, job application, LinkedIn edit or recruiter contact is implied by this documentation.**
-
-## Next acceptance gate
-
-Prioritize verification and reviewable progress on the separately hosted [Knowledge API PR #2](https://github.com/RiverThreeR3/AGESOMA-PROJECTS/pull/2); keep Budget Guard PR #1 in the audit queue for exact-SHA CI, security and conflict review. **Never auto-merge** either PR. Link commercial evidence here only with correct status and verified attribution.
+For more context, see [project status and next gates](../PROJECTS.md), [engineering standards](../ENGINEERING_STANDARDS.md) and [technical learning roadmap](../ROADMAP.md).
