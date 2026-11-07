@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "upstream": "rohitg00/ai-engineering-from-scratch",
+  "upstream_url": "https://github.com/rohitg00/ai-engineering-from-scratch",
+  "source": "https://aiengineeringfromscratch.com/",
+  "source_checked_at": "2026-11-07",
+  "course_total_lessons": 542,
+  "course_total_phases": 20,
+  "privacy_policy": "This is course structure and a crosswalk only; do NOT store the user's personal lesson completion in this public repository.",
+  "phases": [
+    {
+      "phase": "00",
+      "name": "Setup & Tooling",
+      "lesson_count": 13,
+      "local_track_ids": [
+        "01",
+        "09"
+      ]
+    },
+    {
+      "phase": "01",
+      "name": "Math Foundations",
+      "lesson_count": 22,
+      "local_track_ids": [
+        "02",
+        "03"
+      ]
+    },
+    {
+      "phase": "02",
+      "name": "ML Fundamentals",
+      "lesson_count": 21,
+      "local_track_ids": [
+        "02",
+        "07"
+      ]
+    },
+    {
+      "phase": "03",
+      "name": "Deep Learning Core",
+      "lesson_count": 13,
+      "local_track_ids": [
+        "03"
+      ]
+    },
+    {
+      "phase": "04",
+      "name": "Computer Vision",
+      "lesson_count": 28,
+      "local_track_ids": [
+        "03"
+      ]
+    },
+    {
+      "phase": "05",
+      "name": "NLP",
+      "lesson_count": 29,
+      "local_track_ids": [
+        "04",
+        "05"
+      ]
+    },
+    {
+      "phase": "06",
+      "name": "Speech & Audio",
+      "lesson_count": 17,
+      "local_track_ids": []
+    },
+    {
+      "phase": "07",
+      "name": "Transformers Deep Dive",
+      "lesson_count": 16,
+      "local_track_ids": [
+        "03",
+        "04"
+      ]
+    },
+    {
+      "phase": "08",
+      "name": "Generative AI",
+      "lesson_count": 15,
+      "local_track_ids": [
+        "04",
+        "08"
+      ]
+    },
+    {
+      "phase": "09",
+      "name": "Reinforcement Learning",
+      "lesson_count": 12,
+      "local_track_ids": []
+    },
+    {
+      "phase": "10",
+      "name": "LLMs from Scratch",
+      "lesson_count": 24,
+      "local_track_ids": [
+        "03",
+        "04"
+      ]
+    },
+    {
+      "phase": "11",
+      "name": "LLM Engineering",
+      "lesson_count": 17,
+      "local_track_ids": [
+        "04",
+        "05",
+        "07"
+      ]
+    },
+    {
+      "phase": "12",
+      "name": "Multimodal AI",
+      "lesson_count": 25,
+      "local_track_ids": []
+    },
+    {
+      "phase": "13",
+      "name": "Tools & Protocols",
+      "lesson_count": 45,
+      "local_track_ids": [
+        "06",
+        "10"
+      ]
+    },
+    {
+      "phase": "14",
+      "name": "Agent Engineering",
+      "lesson_count": 54,
+      "local_track_ids": [
+        "06",
+        "07"
+      ]
+    },
+    {
+      "phase": "15",
+      "name": "Autonomous Systems",
+      "lesson_count": 22,
+      "local_track_ids": [
+        "06",
+        "10"
+      ]
+    },
+    {
+      "phase": "16",
+      "name": "Multi-Agent & Swarms",
+      "lesson_count": 25,
+      "local_track_ids": [
+        "06",
+        "07"
+      ]
+    },
+    {
+      "phase": "17",
+      "name": "Infrastructure & Production",
+      "lesson_count": 29,
+      "local_track_ids": [
+        "09",
+        "10"
+      ]
+    },
+    {
+      "phase": "18",
+      "name": "Ethics, Safety & Alignment",
+      "lesson_count": 30,
+      "local_track_ids": [
+        "10"
+      ]
+    },
+    {
+      "phase": "19",
+      "name": "Capstone Projects",
+      "lesson_count": 85,
+      "local_track_ids": [
+        "11"
+      ]
+    }
+  ]
+}
