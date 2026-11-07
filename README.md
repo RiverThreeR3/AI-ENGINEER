@@ -1,84 +1,42 @@
-# AI Engineer
+# Raphael Ribeiro — AI Engineering
 
-**Build reliable AI systems. Measure results. Ship usable products.**
+**Python APIs · Retrieval systems · Evaluations · Safety-conscious automation**
 
-This is the applied AI Engineering portfolio of [@raphaelribeirob](https://github.com/raphaelribeirob). It is organized around hands-on projects, reproducible evaluations, software quality, security and deployment.
+This portfolio highlights inspectable engineering implementations and their current evidence. Each project links to source code, tests or a pull request. A **passing CI run is not a production deployment**, and an open pull request is not merged work.
 
-**Current status:** learning tracks and project requirements are organized. A folder does **not** mean its project is complete. The combined workflow's active commercial engineering flagship is [AGESOMA Knowledge API PR #2](https://github.com/RiverThreeR3/AGESOMA-PROJECTS/pull/2), under review in its **separate authoritative repository**; the local Budget Guard PR #1 remains maintenance/audit-only. Neither is claimed deployed or individually mastered by the learner.
+## Featured engineering work
 
-## Recruiter quick start
-
-**[Review this portfolio: evidence, current projects, skill-to-proof map and technical interview topics](docs/RECRUITER_GUIDE.md)**
-
-| What to verify | Where |
-| --- | --- |
-| Current technical work and exact status | [PROJECTS.md](PROJECTS.md) and [Budget Guard PR #1](https://github.com/RiverThreeR3/AIEngineer/pull/1), still in review |
-| Independently inspectable public demo | [InstantCloser deterministic policy lab](projects/instantcloser/README.md) |
-| Technical proof and limitations | [Evidence bundle template](templates/EVIDENCE_BUNDLE.md) and [engineering standards](ENGINEERING_STANDARDS.md) |
-| Curriculum alignment | [Official course-to-portfolio mapping](docs/COURSE_MAPPING.md) |
-| Interview preparation topics | [Recruiter technical deep-dives](docs/RECRUITER_GUIDE.md#the-interview-connection) |
-
-The professional English CV is sent privately to recruiters and references **these same public project links**. Coaching history, grades, interview answers and the CV's private Drive folder are not published. No course lesson is represented as professional employment.
-
-## Primary learning repository
-
-The **canonical upstream curriculum** for this portfolio is [rohitg00/ai-engineering-from-scratch](https://github.com/rohitg00/ai-engineering-from-scratch) (MIT license). Its lessons, hands-on exercises, and practical projects provide the default learning sequence. This repository remains Raphael's **original work and evidence portfolio**, not a fork or mirror of the upstream course. 
-
-Each daily lesson should cite the relevant upstream phase and exact lesson URL, connect it to a real weekly project, and record independently verified tests. The one active flagship project is selected from verified client demand and progressed through checkable milestones, not replaced automatically each week. Other open-source repositories are secondary references; see [RESOURCES.md](RESOURCES.md) and [ROADMAP.md](ROADMAP.md).
-
-## Curriculum-to-portfolio workflow
-
-The **main curriculum** is [AI Engineering From Scratch](https://github.com/rohitg00/ai-engineering-from-scratch). Its [Applied AI Engineer / LLM Product Engineering career route](https://github.com/rohitg00/ai-engineering-from-scratch/blob/main/learning-paths/applied-ai-engineer.json) sets the professional evidence targets. The **20 upstream course phases** and the **11 local application tracks** are different systems; no lesson or track is implied complete by being listed.
-
-- [Official 20-phase → local 11-track map](docs/COURSE_MAPPING.md)
-- [Daily learning, BUILD/AUDIT and interview flow](docs/DAILY_WORKFLOW.md)
-- [Evidence-based project and resume template](templates/EVIDENCE_BUNDLE.md)
-- [Agent and Codex project instructions](AGENTS.md)
-
-**Cadence:** one original flagship project until its acceptance gates pass, with verifiable weekly milestones—not a prescribed number of new projects per week. Quiz/interview answers, personal progress and the professional resume stay private.
-
-## Navigate
-
-- [Learning path](ROADMAP.md): foundations → LLM systems → production.
-- [Project portfolio](PROJECTS.md): existing evidence, planned builds and next steps.
-- [Engineering quality standard](ENGINEERING_STANDARDS.md): definition of done.
-- [Open-source project references](RESOURCES.md): external examples to learn from.
-- [Project template](templates/PROJECT_README.md): standard README for every new build.
-
-## Hands-on tracks
-
-| # | Track | Main deliverable | State |
+| Project | What is implemented | Evidence | Current state |
 | --- | --- | --- | --- |
-| 01 | [Python & APIs](tracks/01-python-apis/README.md) | Tested FastAPI service | [In open PR #1](https://github.com/RiverThreeR3/AIEngineer/pull/1); not merged or deployed |
-| 02 | [Machine Learning](tracks/02-machine-learning/README.md) | Measured ML prediction API | Planned |
-| 03 | [Deep Learning](tracks/03-deep-learning/README.md) | Reproducible PyTorch training loop | Planned |
-| 04 | [LLM Engineering](tracks/04-llm-engineering/README.md) | Structured-output LLM gateway | Planned |
-| 05 | [RAG & Search](tracks/05-rag-search/README.md) | Evaluated document question-answering API | Existing WIP project |
-| 06 | [AI Agents & MCP](tracks/06-agents-mcp/README.md) | Tool-using agent with action controls | Existing scaffold |
-| 07 | [Evaluations](tracks/07-evaluations/README.md) | Repeatable eval and regression suite | Planned in this track |
-| 08 | [Fine-tuning & Model Choices](tracks/08-model-adaptation/README.md) | Baseline vs fine-tuned model comparison | Planned |
-| 09 | [MLOps & Deployment](tracks/09-mlops-deployment/README.md) | Containerized observable AI API | Planned |
-| 10 | [AI Security & System Design](tracks/10-security-system-design/README.md) | Threat model and multi-tenant safety tests | Planned |
-| 11 | [Capstone Products](tracks/11-capstones/README.md) | End-to-end real-world AI application | Planned |
+| **[Knowledge API](https://github.com/RiverThreeR3/AGESOMA-PROJECTS/pull/2)** | A FastAPI document search/answer service using deterministic lexical retrieval, source-line citations, abstention and synthetic evaluation cases. Source code lives in the separate public AGESOMA-PROJECTS repository. | [Implementation and tests](https://github.com/RiverThreeR3/AGESOMA-PROJECTS/tree/62ccc7e4584bfcf68f07de2706a75580828c6715/projects/knowledge-api) · [CI at the reviewed SHA](https://github.com/RiverThreeR3/AGESOMA-PROJECTS/actions/runs/42366822290) | **Open PR**, CI passed on `62ccc7e`; no LLM, private-document ingestion or deployment |
+| **[AI Request Budget Guard](https://github.com/RiverThreeR3/AIEngineer/pull/1)** | A typed FastAPI endpoint that estimates per-request model cost with `Decimal`, validates input, requires an API key and applies a process-local rate limiter. | [Source and tests in PR](https://github.com/RiverThreeR3/AIEngineer/tree/6a3b11f38e41b857326bcbf99e97ed3a34b07b65/tracks/01-python-apis) · [CI at the reviewed SHA](https://github.com/RiverThreeR3/AIEngineer/actions/runs/41823927651) | **Open PR**, CI passed on `6a3b11f`; merge conflict pending; no provider billing or production enforcement |
+| **[InstantCloser Decision Policy Lab](projects/instantcloser/README.md)** | Side-effect-free Python rules for consent, opt-out, objections, scheduling requests, pricing requests and an illustrative injection-pattern check, with 11 hand-authored synthetic scenarios. | [Decision engine](projects/instantcloser/agent.py) · [Regression tests](projects/instantcloser/tests/test_agent.py) · [Evaluator](projects/instantcloser/evaluate.py) | **Code in main**; reproducible demo, not a deployed agent or real-model evaluation |
+| **[RAG Production](https://github.com/raphaelribeirob/rag-production)** | A separate work-in-progress retrieval pipeline using FastAPI, PostgreSQL/pgvector, embeddings, citations and evaluation tooling. | [Code and project evaluation notes](https://github.com/raphaelribeirob/rag-production) | **Work in progress**; repository reports real-model faithfulness below its target; not independently rerun in this review |
 
-## Existing public code
+### Experimental, not yet a demonstrated result
 
-The [InstantCloser AI Engineering case](projects/instantcloser/README.md) includes a safe public decision-policy lab, regression tests and a synthetic evaluation benchmark. The complete commercial InstantCloser source remains in its separate private repository and is **not** published here.
+[Agent Benchmark](https://github.com/raphaelribeirob/agent-benchmark) contains a proposed comparison framework for agent self-correction. Its own README identifies it as a **scaffold with no completed benchmark runs or measured results**. It is not presented as a finished project.
 
+## How to review the work
 
-| Repository | What it demonstrates | Honest status |
-| --- | --- | --- |
-| [rag-production](https://github.com/raphaelribeirob/rag-production) | FastAPI, pgvector, grounded Q&A and retrieval evaluation | **Work in progress.** The repository documents a real-model faithfulness score below its target. |
-| [agent-benchmark](https://github.com/raphaelribeirob/agent-benchmark) | Agent benchmarking architecture and result aggregation | **Scaffold.** No completed benchmark or performance measurements claimed. |
+1. Open the linked code or pull request and inspect the actual inputs, outputs and tests.
+2. For a CI claim, compare the workflow run's commit SHA with the project revision.
+3. Read the documented limitations: synthetic tests, local demonstrations and production systems are different levels of evidence.
 
-Existing projects remain independent. This hub links to them instead of copying code. Private repositories are not represented here as accessible public portfolio projects.
+These are public engineering artifacts, not claims of customer delivery, verified commercial outcomes or individual authorship of every commit. Contribution and ownership should be checked against the relevant Git history and reviews.
 
-## What counts as a finished project?
+## Technical approach
 
-A project is portfolio-ready **only after** a reviewer can reproduce it, inspect measured results, verify tests, understand security controls and see limitations. See [ENGINEERING_STANDARDS.md](ENGINEERING_STANDARDS.md).
+**Define the contract → implement a deterministic baseline → test failure modes → evaluate quality and safety → document what was actually observed.**
 
-## Working principle
+Current focus: completing the acceptance and security/evaluation checks for [Knowledge API PR #2](https://github.com/RiverThreeR3/AGESOMA-PROJECTS/pull/2). [Budget Guard PR #1](https://github.com/RiverThreeR3/AIEngineer/pull/1) remains in the maintenance/audit queue.
 
-**Build → test → evaluate → secure → measure cost/latency → document → deploy → verify.**
+## More detail
 
-All source and results should be original or correctly attributed, with upstream licenses respected. No unverified production-readiness claims.
+- [Project evidence and remaining gaps](PROJECTS.md)
+- [Engineering evidence guide](docs/RECRUITER_GUIDE.md)
+- [Engineering standards](ENGINEERING_STANDARDS.md)
+- [Learning tracks and future work](ROADMAP.md)
+- [Course-to-practice mapping](docs/COURSE_MAPPING.md)
+
+Learning-track folders document requirements and intended work; they do **not** represent completed projects. No live deployment or client outcome is implied by an architectural design, a tutorial or a passing CI badge.
