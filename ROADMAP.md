@@ -15,7 +15,7 @@ This is a **project-first** path for applied AI engineering; phases represent sk
 
 **Primary upstream:** [rohitg00/ai-engineering-from-scratch](https://github.com/rohitg00/ai-engineering-from-scratch) (MIT). Use its 20-phase curriculum as the **default learning source**, not as an assertion that all 542 lessons have been completed. Select the exact lesson and phase for each daily lesson and link it in the daily report.
 
-**Market-first execution:** The single active engineering project is selected from verified current freelance demand. A new week sets a new milestone for that same project; it does not require starting another project. Map that project to the closest upstream phase and exercise; prioritize Phase 0 (tooling), Phase 11 (LLM engineering), Phase 13 (tools/protocols), Phase 14 (agent engineering), Phase 17 (infrastructure/production), Phase 18 (safety), and Phase 19 (capstone) when relevant. Learn prerequisite phases when gaps are evident; do not force a linear 542-lesson sequence ahead of client-relevant delivery.
+**Market-first execution:** The single active engineering project is selected from verified current freelance demand. In the combined daily routine the permitted opportunity source is **LinkedIn only**; archived Workana/Upwork citations are historical, not actively monitored. The current flagship is [AGESOMA Knowledge API PR #2](https://github.com/RiverThreeR3/AGESOMA-PROJECTS/pull/2), whose source stays in AGESOMA-PROJECTS. [AI Request Budget Guard PR #1](https://github.com/RiverThreeR3/AIEngineer/pull/1) is maintenance/audit-only. A new week sets a new milestone for that same flagship; it does not require starting another project. Map that project to the closest upstream phase and exercise; prioritize Phase 0 (tooling), Phase 11 (LLM engineering), Phase 13 (tools/protocols), Phase 14 (agent engineering), Phase 17 (infrastructure/production), Phase 18 (safety), and Phase 19 (capstone) when relevant. Learn prerequisite phases when gaps are evident; do not force a linear 542-lesson sequence ahead of client-relevant delivery.
 
 **Daily evidence contract:** Upstream lesson URL + phase + concept, original implementation or exercise, test commands with actual outcomes, interview practice, and next learning gap. Do not equate reading upstream material, cloned examples, or mock evaluations with verified professional production experience.
 
@@ -48,11 +48,10 @@ The canonical route is upstream [`learning-paths/applied-ai-engineer.json`](http
 
 ## Next concrete work
 
-1. Resolve the open quality/security/observability gaps in [rag-production](https://github.com/raphaelribeirob/rag-production).
-2. Make [agent-benchmark](https://github.com/raphaelribeirob/agent-benchmark) executable end-to-end with actual measurements.
-3. Implement the [01 Python & APIs](tracks/01-python-apis/README.md) project as a small, independent, tested service.
-4. Build the [04 LLM Engineering](tracks/04-llm-engineering/README.md) structured-output gateway and compare providers.
-5. Publish one capstone only after acceptance criteria pass.
+1. Inspect the [AGESOMA Knowledge API PR #2](https://github.com/RiverThreeR3/AGESOMA-PROJECTS/pull/2) at its current head SHA, independently test retrieval grounding, abstention, negative/security cases and holdout evaluation, and advance one reviewable stage per BUILD day **in its authoritative commercial repository**.
+2. Audit the [AI Request Budget Guard PR #1](https://github.com/RiverThreeR3/AIEngineer/pull/1) for current-SHA CI, conflicts, security and evidence as a **maintenance task**, not a second ongoing feature build.
+3. Reconcile both public evidence indices without copying application code, implying agent-authored work proves personal mastery, or promoting a portfolio item before its gates pass.
+4. Consider additional project candidates only after verified flagship acceptance and a documented decision. Do not write in legacy or private repositories.
 
 ## Status definitions
 
