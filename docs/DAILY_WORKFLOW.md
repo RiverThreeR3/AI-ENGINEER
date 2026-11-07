@@ -12,7 +12,7 @@ The existing external ChatGPT automation is scheduled for **08:00 America/Sao_Pa
 | AUDIT | Explain an earlier concept or current engineering failure in full; distinguish material presented from skill demonstrated; **no assumed quiz scores** | Inspect the active PR at its actual SHA; test behavior, security, dependency licenses and regressions; fix only with reviewable changes | Tests, CI and deployment distinctly labeled; blockers and next gate |
 | SUNDAY | Same lesson and interview obligations | Project status and acceptance-gate audit | **One** private, accurate English master resume generated from verified evidence, preserving prior version when supported |
 
-The scheduled routine alternates BUILD and AUDIT by local calendar days from 2026-11-05 (BUILD) and 2026-11-06 (AUDIT). Sundays do not cancel either part of the learning routine. The combined commercial workflow researches **LinkedIn-only** remote freelance/contract opportunities eligible to Brazil; older cross-platform examples in AGESOMA's watchlist are historical.
+The scheduled routine alternates BUILD and AUDIT by local calendar days from 2026-11-05 (BUILD) and 2026-11-06 (AUDIT). Sundays do not cancel either part of the learning routine. The public engineering evidence presented here is limited to implementations, tests, source revisions and documented limitations; career-platform monitoring is not part of this portfolio's technical presentation.
 
 ## ChatGPT as an expository learning report
 
@@ -50,7 +50,7 @@ The three learning state files above are intentionally excluded from this reposi
 ## Daily report — required fields, in Brazilian Portuguese
 
 1. **Source check:** exact upstream phase/lesson/route, URL, checked revision if actually available, relevant changes or `unverified`.
-2. **Career alignment:** LLM Product Engineering route stage and why it relates to a current verified client need.
+2. **Technical relevance:** the engineering topic, the specific implementation problem and why the chosen design solves it within its stated limits.
 3. **Lesson:** full readable explanation, verified code or explicitly labeled pseudocode, original worked example with inputs/outputs, alternatives, trade-offs and limitations; no exercises or unanswered questions.
 4. **Interview:** authentic bank-linked prompt in English, original English model answer and Portuguese coaching commentary; no response or grading required.
 5. **Project stage:** current flagship, original files/PR/SHA, independent tests, CI for the **same** commit, failures and next acceptance gate.
