@@ -2,6 +2,8 @@
 
 **Mission:** bring the personal applied AI Engineering portfolio to **100% on the 11 local tracks** documented in [README.md](../README.md). This is **not** the upstream 20-phase course / 542 lessons; upstream reading is an independent personal learning activity, never auto-marked complete.
 
+**Curriculum alignment:** this is only the **engineering portfolio** meter; the separate [20-phase / 542-lesson AI Engineering From Scratch alignment](AI_ENGINEERING_FROM_SCRATCH_ALIGNMENT.md) has a distinct private learner-progress measure. Do not present 66/66 as graduating the complete upstream curriculum.
+
 ## What the meter measures
 
 One original, demonstrable and recruiter-defensible outcome must satisfy **six technical acceptance gates per track**:
