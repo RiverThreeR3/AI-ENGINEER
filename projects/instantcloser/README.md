@@ -35,14 +35,14 @@ python -m unittest discover -s projects/instantcloser/tests -v
 python -m projects.instantcloser.evaluate
 ```
 
-These are documented reproduction commands; this documentation audit **did not run them**. The synthetic evaluator is useful for detecting regressions on its authored examples. It does not validate real-world accuracy or LLM performance.
+These commands were verified in [GitHub Actions run 42369898273](https://github.com/RiverThreeR3/AIEngineer/actions/runs/42369898273) for documentation PR #8 at `c112c64`: 6 tests ran successfully and all 11 synthetic evaluator examples matched. They were **not rerun locally** in this audit. The evaluator is useful for detecting regressions on its authored examples. It does not validate real-world accuracy or LLM performance.
 
 ## Security and evaluation limits
 
 - Consent and objections are test inputs, **not verified against an authenticated source**.
 - `tenant_id` is a validated string only; **there is no authentication or tenant isolation**.
 - Phrase matching for instruction overrides is illustrative and bypassable; **not** a comprehensive prompt-injection defense.
-- No independently verified CI result for this component, independent held-out dataset, real-model comparison, latency/cost measurement or deployment is claimed here.
+- CI checks are documented above for the unchanged lab code; **no** independent held-out dataset, real-model comparison, latency/cost measurement or deployment is claimed here.
 
 ## Next engineering gates
 
