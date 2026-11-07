@@ -11,7 +11,7 @@ function validEvidence(e){
   if(!e||typeof e!=='object'||Array.isArray(e))return false;
   try{
     const u=new URL(e.url);
-    if(u.protocol!=='https:'||!u.hostname.endsWith('github.com'))return false;
+    if(u.protocol!=='https:'||!(u.hostname==='github.com'||u.hostname.endsWith('.github.com')))return false;
   }catch{return false}
   return FULL_SHA.test(e.commit||'')&&
     e.result==='PASS'&&
