@@ -26,6 +26,10 @@ This repository is Raphael's public **original engineering portfolio**, not the 
 - Courses and interviews are conducted interactively with the learner in **ChatGPT**; a scheduled task can ask an unanswered question but cannot invent a reply, test pass or skill validation. Keep personal assessment answers/scores in a verified **private** progress store only. Never put a private tracking document link in this public repository.
 - Upstream learning → verified learner practice → original project changes → accepted testing/evaluation → truthful resume bullet → interview explanation. Only verified, publishable evidence passes to recruiter materials.
 
+## Verified AI Engineer completion percentage
+
+For scheduled personal AI Engineering portfolio updates, read [PROGRESS_METER.md](docs/PROGRESS_METER.md), `data/ai-engineer-progress.json` and `scripts/ai-engineer-progress.mjs`. The meter covers **11 local tracks × 6 mandatory quality gates = 66 acceptance gates**, not the 20-phase external curriculum. Each daily report shows the verified percentage, verified gates/66, completed tracks/11, change since last verified checkpoint and next missing gate. Do not count a gate without independent source/CI/measurement evidence at its exact revision; a pending PR, scaffold or lesson is not complete. When proof cannot be checked, print **PERCENTUAL NÃO VERIFICADO**, with the last known checkpoint labeled by date rather than inventing progress. This metric does not represent InstantWork release readiness or customer work.
+
 ## Definition of done
 
 A project is **portfolio-ready** only when its relevant acceptance, reproducibility, evaluation, security, license, deployment-claim and documentation gates are satisfied. If a gate is missing, keep the honest status and define the next test. Cite original evidence; an attractive README alone is not a completion criterion.
