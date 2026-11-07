@@ -4,6 +4,9 @@ on:
   pull_request:
     paths:
       - "data/ai-engineer-progress.json"
+      - "data/ai-engineering-from-scratch-curriculum.json"
+      - "scripts/ai-engineering-from-scratch-alignment.mjs"
+      - "tests/ai-engineering-from-scratch-alignment.test.mjs"
       - "scripts/ai-engineer-progress.mjs"
       - "tests/ai-engineer-progress.test.mjs"
       - ".github/workflows/ai-engineer-progress.yml"
