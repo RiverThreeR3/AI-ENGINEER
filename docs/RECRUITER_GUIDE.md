@@ -26,7 +26,7 @@ A short guide to **what is implemented and publicly inspectable**. This page is 
 
 **Inspect:** [Project explanation](../projects/instantcloser/README.md) · [policy code](../projects/instantcloser/agent.py) · [fixtures](../projects/instantcloser/scenarios.json) · [unit tests](../projects/instantcloser/tests/test_agent.py).
 
-**Observed state:** Runnable code is present in `main`; tests and evaluation commands are documented. An independent CI result for this specific component was **not confirmed during this audit**. The lab executes no external actions and does not establish real-model security, customer outcomes or production readiness.
+**Observed state:** Runnable code is present in `main`; tests and evaluation commands are documented. The [policy-regression workflow](https://github.com/RiverThreeR3/AIEngineer/actions/runs/42369898273) completed successfully on documentation PR #8 (`c112c64`): 6 unit tests and all 11 synthetic evaluator cases passed. This verifies the same unchanged lab code on that review branch, not independent real-world quality. The lab executes no external actions and does not establish real-model security, customer outcomes or production readiness.
 
 ### 4. RAG Production — retrieval and faithfulness measurement
 
