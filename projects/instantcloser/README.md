@@ -1,74 +1,51 @@
-# InstantCloser — Deterministic-first Sales Agent Lab
+# InstantCloser — Deterministic Decision Policy Lab
 
-**Portfolio status:** Public, independently authored teaching/demo implementation. **Not** the production InstantCloser app; no deployment or real-model benchmark has been verified. Original product: `raphaelribeirob/InstantCloser` (**private**, remains separate).
+**Status:** Public Python demonstration on `main`. It is **not a deployed agent**, does not call a language model and performs no external actions.
 
-## Problem and intended user
-Sales agents need to identify customer intent, follow permission rules, avoid premature closes, and propose the smallest safe next step. The engineering challenge is to make the core policy deterministic and measurable rather than having a language model unilaterally send messages, book meetings, or declare revenue.
+## Problem
 
-## Public deliverable
-- `agent.py`: side-effect-free policy engine (Portuguese/English phrase patterns) with explicit consent, opt-out, objection and prompt-injection guards.
-- `scenarios.json`: **11 hand-authored synthetic examples**, not real customers and not a held-out production dataset.
-- `evaluate.py`: exact-match action accuracy and model-review escalation rate on those fixtures.
-- `tests/test_agent.py`: regression tests for consent, opt-out, approval requirements, injection and basic input validation.
-- CI: dedicated GitHub Actions workflow running those checks.
+An automated assistant must not schedule, quote prices or pursue a conversation solely because a message contains a promising keyword. Consent, explicit opt-out, active objections and untrusted instructions must take priority over an action proposal.
 
-## Architecture (demo only)
+## What is implemented
+
+- [`agent.py`](agent.py): immutable request/decision structures and a pure rule-based `decide()` function. The parser normalizes Unicode, validates the demo tenant identifier and message length, and chooses an action by ordered policy checks.
+- [`scenarios.json`](scenarios.json): **11 hand-authored synthetic messages**, including English/Portuguese opt-out, missing consent, booking, pricing, objections, purchase intent, ambiguity and a basic injection-pattern example.
+- [`evaluate.py`](evaluate.py): compares expected vs actual actions for the fixtures and reports exact-match agreement, model-review flags and failures.
+- [`tests/test_agent.py`](tests/test_agent.py): unit tests for synthetic regression, opt-out priority, missing consent, suspicious instruction patterns and invalid inputs.
+
+### Decision path
 
 ```text
-Synthetic buyer message + demo context
-          |
-          v
-     Input validation
-          |
-          v
-  Opt-out / injection / consent guard
-          |
-          v
-   Objection + intent rules
-          |
-          v
- Proposed next action + human-approval flag
-          |
-          +----> Semantic-review flag on unrecognized intent
+Synthetic message and supplied consent context
+  -> validate fields and normalize text
+  -> opt-out and suspicious-instruction checks
+  -> consent and objection checks
+  -> intent-specific rule
+  -> proposed next action, optional approval/review flag
 ```
 
-**No messages, bookings, purchases, database writes, model calls or outbound tool executions occur.** A proposed slot is not a confirmed appointment; a purchase intent is not a sale.
+The proposed action is a **data result**. No message, appointment, CRM write, purchase or external tool call is executed.
 
-## Production architecture represented (not copied)
-The separate private InstantCloser repository documents a FastAPI/SQLAlchemy backend, PostgreSQL/Neon, Flutter, Meta WhatsApp Cloud API, billing, voice, sales-policy logic and first-party revenue attribution. This public lab isolates **one teaching concern**: evaluating a sales decision policy. It does **not** expose or mirror proprietary production source.
+## How to inspect
 
-## Run locally
-Requires Python 3.11+ and the repository root as working directory; no API keys or dependencies.
+From the repository root, with Python 3.11+:
 
 ```bash
 python -m unittest discover -s projects/instantcloser/tests -v
 python -m projects.instantcloser.evaluate
 ```
 
-The benchmark prints `cases`, `passed`, `exact_match`, `model_review_rate` and per-scenario failures. A high score on 11 authored scenarios proves only regression consistency on those scenarios; it does **not** establish conversion uplift, production accuracy, general language coverage or LLM quality.
+These commands were verified in [GitHub Actions run 42369898273](https://github.com/RiverThreeR3/AIEngineer/actions/runs/42369898273) for documentation PR #8 at `c112c64`: 6 tests ran successfully and all 11 synthetic evaluator examples matched. They were **not rerun locally** in this audit. The evaluator is useful for detecting regressions on its authored examples. It does not validate real-world accuracy or LLM performance.
 
-## AI engineering evaluation plan
-1. Add diverse, independently labeled hold-out cases including multilingual negation, mixed intents, injection, refund and cancellation.
-2. Establish a rule-only baseline, optional structured-output model fallback, and calibrated escalation thresholds.
-3. Measure safety violation rate, precision by action, human-review rate, latency, token usage, cost and changes across releases.
-4. Add fault-injected provider simulations and permissioned tool calls; verify provider acknowledgment before marking real-world outcomes.
-5. Evaluate tenant isolation and authorization using **server-authenticated** identity, not `tenant_id` supplied by a caller.
+## Security and evaluation limits
 
-## Security, privacy and limitations
-- All example data is synthetic; no personal data or credentials are required.
-- `tenant_id` is only a validated demo identifier; **there is no authentication or multi-tenant security implementation**.
-- `consent_to_contact` and `active_objection` are supplied as test context, not backed by a trusted database.
-- Injection phrase matching is illustrative and trivially bypassable; it is **not a complete prompt-injection defense**.
-- No verified live integration, deployment, real customer ROI, or production security review is claimed.
+- Consent and objections are test inputs, **not verified against an authenticated source**.
+- `tenant_id` is a validated string only; **there is no authentication or tenant isolation**.
+- Phrase matching for instruction overrides is illustrative and bypassable; **not** a comprehensive prompt-injection defense.
+- CI checks are documented above for the unchanged lab code; **no** independent held-out dataset, real-model comparison, latency/cost measurement or deployment is claimed here.
 
-## Attribution and license
-The public lab is a new educational implementation associated with the author's own private InstantCloser product. No private source code, secrets, customer data, or third-party datasets were copied into this folder. Licensing of the private application is not inferred from this public exercise.
+## Next engineering gates
 
-## Acceptance gates
-- [x] Runnable no-dependency local regression suite and synthetic evaluator committed
-- [x] Explicit action permissions and side-effect-free output in the demo
-- [ ] CI result independently observed
-- [ ] Broader held-out and adversarial data
-- [ ] Real-model versus deterministic baseline comparison
-- [ ] End-to-end authorized integration and provider receipt checks
-- [ ] Live deployment, costs, latency, security assessment and measured ROI
+Add independently labeled ambiguous and adversarial cases, record failures by action category, compare against an optional model-assisted baseline, and test permission boundaries before considering any real-world integration.
+
+This public lab contains a standalone demonstration only. It does not expose or claim the implementation state of a separate private application.
