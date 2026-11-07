@@ -4,7 +4,7 @@
 
 This is the applied AI Engineering portfolio of [@raphaelribeirob](https://github.com/raphaelribeirob). It is organized around hands-on projects, reproducible evaluations, software quality, security and deployment.
 
-**Current status:** learning tracks and project requirements are organized. A folder does **not** mean its project is complete.
+**Current status:** learning tracks and project requirements are organized. A folder does **not** mean its project is complete. The combined workflow's active commercial engineering flagship is [AGESOMA Knowledge API PR #2](https://github.com/RiverThreeR3/AGESOMA-PROJECTS/pull/2), under review in its **separate authoritative repository**; the local Budget Guard PR #1 remains maintenance/audit-only. Neither is claimed deployed or individually mastered by the learner.
 
 ## Recruiter quick start
 
