@@ -6,6 +6,24 @@ This is the applied AI Engineering portfolio of [@raphaelribeirob](https://githu
 
 **Current status:** learning tracks and project requirements are organized. A folder does **not** mean its project is complete.
 
+## Completion meter — 11 applied AI Engineering tracks
+
+**Verified completion baseline (2026-11-07): 0.0% — 0/66 independently accepted technical gates; 0/11 tracks fully complete.** This is a conservative new tracking baseline, **not a claim that the existing partial projects contain no work**. The meter advances with independently checked code, tests/CI, evaluations, security, reproducibility and demo evidence — six gates per track.
+
+```text
+AI ENGINEER  ░░░░░░░░░░░░░░░░░░░░  0.0%
+Verified gates: 0/66 | Remaining: 66
+Completed tracks: 0/11 | Remaining: 11
+```
+
+[Read the progress rules and daily update process](docs/PROGRESS_METER.md) · [Evidence ledger](data/ai-engineer-progress.json). The current default-branch progress should be read from verifiable evidence; this tracker is under review until merged. The upstream 20-phase learning curriculum is **not** counted as completed by this engineering meter.
+
+## Alinhamento ao currículo completo (20 fases / 542 aulas)
+
+O medidor de **66 gates de engenharia** avalia nosso portfólio aplicado; não representa o curso inteiro. A referência oficial [AI Engineering From Scratch](https://github.com/rohitg00/ai-engineering-from-scratch) tem **20 fases e 542 aulas** na revisão de 2026-11-07. Progresso pessoal curricular: **NÃO VERIFICADO** enquanto não houver registro de estudo confirmado em fonte privada; nenhum dado pessoal é armazenado neste repositório público.
+
+[Comparar os dois medidores](docs/AI_ENGINEERING_FROM_SCRATCH_ALIGNMENT.md) · [Mapa público das 20 fases](data/ai-engineering-from-scratch-curriculum.json). O mapa demonstra cobertura curricular, **não conclusão**.
+
 ## Recruiter quick start
 
 **[Review this portfolio: evidence, current projects, skill-to-proof map and technical interview topics](docs/RECRUITER_GUIDE.md)**

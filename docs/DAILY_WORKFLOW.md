@@ -14,6 +14,14 @@ The existing external ChatGPT automation is scheduled for **08:00 America/Sao_Pa
 
 The scheduled routine alternates BUILD and AUDIT by local calendar days from 2026-11-05 (BUILD) and 2026-11-06 (AUDIT). Sundays do not cancel either part of the learning routine.
 
+## Two separate progress indicators — course vs engineering portfolio
+
+The official [AI Engineering From Scratch](https://github.com/rohitg00/ai-engineering-from-scratch) has **20 phases / 542 lessons** on the version checked 2026-11-07. The learner's course progress is a **PRIVATE measure** and may only advance with user-confirmed lesson evidence; if no permitted study tracker is accessible, show `PERCENTUAL CURRICULAR NÃO VERIFICADO`. Follow [course alignment](AI_ENGINEERING_FROM_SCRATCH_ALIGNMENT.md) and the public [phase map](../data/ai-engineering-from-scratch-curriculum.json), which stores NO personal lesson completions. This course measure never adds to the **11 tracks × 6 gates = 66** professional project measure. Print both on each daily report, with evidence and remaining work; review upstream changes before shifting the course denominator. Keep the user's requested fully solved explanatory lessons rather than inventing interactive quiz scores.
+
+## AI Engineer completion percentage in every scheduled report
+
+For the personal `RiverThreeR3/AIEngineer` repository, print a progress meter at the top of each daily report, separate from AGESOMA/InstantWork release gates: **verified engineering gates / 66 × 100** and **fully completed tracks / 11**. Follow [the evidence ledger and acceptance contract](PROGRESS_METER.md). Only count one of six gate types per track after exact-SHA and CI/evaluation evidence have been independently checked. Show the difference since the prior verified report and the next unclosed acceptance gate. If the ledger or evidence is inaccessible, show `PERCENTUAL NÃO VERIFICADO` rather than recycling a guessed number. No lesson-read count, course title, planned project, failed CI or open PR automatically earns completion credit. The prior BUILD/AUDIT calendar alternation in this document is superseded for the **scheduled AGESOMA + AI Engineer automation** by its required daily **research → implement → audit** cycle.
+
 ## ChatGPT as the interactive classroom
 
 **Location of interactive practice:** ChatGPT conversation. The scheduled report prepares a complete English lesson, 10–20-minute practical exercise, and one unanswered authentic interview-bank question. The learner must **reply in ChatGPT** to practice. The assistant then asks follow-ups, marks real responses against verified rubrics, and revisits misunderstandings. A scheduled report cannot independently complete a live mock interview, grade unanswered questions, or assume a response in a different thread is visible.

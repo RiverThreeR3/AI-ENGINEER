@@ -1,0 +1,358 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-11-07",
+  "repository": "RiverThreeR3/AIEngineer",
+  "scope": "11 local applied AI Engineer tracks; upstream 20 phases and lessons are NOT counted",
+  "baseline": "Conservative initial evidence ledger: zero accepted gates. Existing WIP and public demos are not retroactively certified.",
+  "gates": [
+    "implementation",
+    "tests_ci",
+    "evaluation",
+    "security",
+    "reproducibility",
+    "demo"
+  ],
+  "tracks": [
+    {
+      "id": "01",
+      "name": "Python & APIs",
+      "gates": {
+        "implementation": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "tests_ci": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "evaluation": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "security": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "reproducibility": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "demo": {
+          "status": "PENDING",
+          "evidence": []
+        }
+      },
+      "note": "Track 01 Budget Guard PR #1 is open; acceptance/CI not verified at current SHA"
+    },
+    {
+      "id": "02",
+      "name": "Machine Learning",
+      "gates": {
+        "implementation": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "tests_ci": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "evaluation": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "security": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "reproducibility": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "demo": {
+          "status": "PENDING",
+          "evidence": []
+        }
+      },
+      "note": "Planned track; no full acceptance evidence verified"
+    },
+    {
+      "id": "03",
+      "name": "Deep Learning",
+      "gates": {
+        "implementation": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "tests_ci": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "evaluation": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "security": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "reproducibility": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "demo": {
+          "status": "PENDING",
+          "evidence": []
+        }
+      },
+      "note": "Planned track; no full acceptance evidence verified"
+    },
+    {
+      "id": "04",
+      "name": "LLM Engineering",
+      "gates": {
+        "implementation": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "tests_ci": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "evaluation": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "security": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "reproducibility": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "demo": {
+          "status": "PENDING",
+          "evidence": []
+        }
+      },
+      "note": "Planned track; no full acceptance evidence verified"
+    },
+    {
+      "id": "05",
+      "name": "RAG & Search",
+      "gates": {
+        "implementation": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "tests_ci": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "evaluation": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "security": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "reproducibility": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "demo": {
+          "status": "PENDING",
+          "evidence": []
+        }
+      },
+      "note": "External RAG project WIP; no completed-track verification"
+    },
+    {
+      "id": "06",
+      "name": "AI Agents & MCP",
+      "gates": {
+        "implementation": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "tests_ci": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "evaluation": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "security": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "reproducibility": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "demo": {
+          "status": "PENDING",
+          "evidence": []
+        }
+      },
+      "note": "Agent benchmark scaffold; no finished evaluation"
+    },
+    {
+      "id": "07",
+      "name": "Evaluations",
+      "gates": {
+        "implementation": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "tests_ci": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "evaluation": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "security": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "reproducibility": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "demo": {
+          "status": "PENDING",
+          "evidence": []
+        }
+      },
+      "note": "Planned track; no full acceptance evidence verified"
+    },
+    {
+      "id": "08",
+      "name": "Fine-tuning & Model Choices",
+      "gates": {
+        "implementation": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "tests_ci": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "evaluation": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "security": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "reproducibility": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "demo": {
+          "status": "PENDING",
+          "evidence": []
+        }
+      },
+      "note": "Planned track; no full acceptance evidence verified"
+    },
+    {
+      "id": "09",
+      "name": "MLOps & Deployment",
+      "gates": {
+        "implementation": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "tests_ci": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "evaluation": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "security": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "reproducibility": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "demo": {
+          "status": "PENDING",
+          "evidence": []
+        }
+      },
+      "note": "Planned track; no full acceptance evidence verified"
+    },
+    {
+      "id": "10",
+      "name": "AI Security & System Design",
+      "gates": {
+        "implementation": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "tests_ci": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "evaluation": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "security": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "reproducibility": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "demo": {
+          "status": "PENDING",
+          "evidence": []
+        }
+      },
+      "note": "Planned track; no full acceptance evidence verified"
+    },
+    {
+      "id": "11",
+      "name": "Capstone Products",
+      "gates": {
+        "implementation": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "tests_ci": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "evaluation": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "security": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "reproducibility": {
+          "status": "PENDING",
+          "evidence": []
+        },
+        "demo": {
+          "status": "PENDING",
+          "evidence": []
+        }
+      },
+      "note": "InstantCloser has a synthetic public policy demo but not a finished capstone"
+    }
+  ]
+}
