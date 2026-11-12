@@ -189,6 +189,29 @@ def test_rate_limiter_thread_safe() -> None:
 
 
 
+
+def test_rate_limiter_rejects_invalid_settings() -> None:
+    for limit, window in [(0, 60.0), (1, 0.0), (-1, 10.0)]:
+        with pytest.raises(ValueError, match="positive"):
+            security.FixedWindowLimiter(limit=limit, window_seconds=window)
+
+
+def test_rate_limiter_resets_on_window_boundary_and_clock_rollback() -> None:
+    now = [100.0]
+    limiter = security.FixedWindowLimiter(
+        limit=1, window_seconds=10.0, clock=lambda: now[0]
+    )
+    assert limiter.retry_after() is None
+    now[0] = 109.1
+    assert limiter.retry_after() == 1
+    now[0] = 110.0
+    assert limiter.retry_after() is None
+    assert limiter.retry_after() == 10
+    now[0] = 90.0
+    assert limiter.retry_after() is None
+    assert limiter.retry_after() == 10
+
+
 def test_structured_metrics_exclude_sensitive_data(caplog: pytest.LogCaptureFixture) -> None:
     import json
 
