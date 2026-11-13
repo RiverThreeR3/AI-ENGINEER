@@ -248,3 +248,18 @@ def test_structured_metrics_record_auth_failure_without_key(
     assert len(events) == 1
     assert events[0]["status"] == 401
     assert "X-API-Key" not in caplog.text
+
+def test_rejected_requests_do_not_consume_extra_slots() -> None:
+    """A rejected burst must not extend the fixed window or charge extra slots."""
+    now = [200.0]
+    limiter = security.FixedWindowLimiter(
+        limit=1, window_seconds=10.0, clock=lambda: now[0]
+    )
+    assert limiter.retry_after() is None
+    for _ in range(100):
+        assert limiter.retry_after() == 10
+    now[0] = 209.1
+    assert limiter.retry_after() == 1
+    now[0] = 210.0
+    assert limiter.retry_after() is None
+    assert limiter.retry_after() == 10
