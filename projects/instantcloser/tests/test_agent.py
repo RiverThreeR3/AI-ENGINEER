@@ -30,6 +30,12 @@ class SalesPolicyTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             decide(LeadRequest("../another-tenant", "book", True))
 
+    def test_non_string_messages_rejected(self):
+        for message in (None, 123, [], {}):
+            with self.subTest(message=message):
+                with self.assertRaisesRegex(ValueError, "message must be a string"):
+                    decide(LeadRequest("tenant_a", message, True))
+
     def test_empty_and_long_messages_rejected(self):
         for message in ("", "x" * 2001):
             with self.subTest(length=len(message)):
